@@ -13,104 +13,108 @@
     <img src="images/simcoder.png" alt="Logo" width="120" height="120">
   </a>
 
-  <h3 align="center">Instagram Clone</h3>
+  <h3 align="center">⚓ Instagram Clone - Arr, a Scallywag's Guide! ⚓</h3>
 
   <p align="center">
-    A Instagram clone app made with React Native and firebase
+    Shiver me timbers! An Instagram clone app made with React Native and Firebase, fashioned by true sea dogs!
     <br />
-    <a href="https://github.com/SimCoderYoutube/InstagramClone/wiki"><strong>Explore the docs »</strong></a>
+    <a href="https://github.com/SimCoderYoutube/InstagramClone/wiki"><strong>Avast! Explore the treasure map »</strong></a>
     <br />
     <br />
-    <a href="https://github.com/SimCoderYoutube/InstagramClone/issues">Report Bug</a>
+    <a href="https://github.com/SimCoderYoutube/InstagramClone/issues">Hoist the black flag fer a Bug Report</a>
     ·
-    <a href="https://github.com/SimCoderYoutube/InstagramClone/issues">Request Feature</a>
+    <a href="https://github.com/SimCoderYoutube/InstagramClone/issues">Request a Feature, Ye Landlubber</a>
   </p>
 </p>
 
 <!-- TABLE OF CONTENTS -->
 <details open="open">
-  <summary><h2 style="display: inline-block">Table of Contents</h2></summary>
+  <summary><h2 style="display: inline-block">⛵ Chart o' Contents</h2></summary>
   <ol>
     <li>
-      <a href="#about-the-project">About The Project</a>
+      <a href="#about-the-project">About This Here Project</a>
       <ul>
-        <li><a href="#built-with">Built With</a></li>
+        <li><a href="#built-with">Built With What Treasures</a></li>
       </ul>
     </li>
     <li>
-      <a href="#getting-started">Getting Started</a>
+      <a href="#getting-started">Settin' Sail - Getting Started</a>
       <ul>
-        <li><a href="#prerequisites">Prerequisites</a></li>
-        <li><a href="#installation">Installation</a></li>
+        <li><a href="#prerequisites">What Ye Need 'Fore Departure</a></li>
+        <li><a href="#installation">How to Load the Cargo</a></li>
       </ul>
     </li>
-    <li><a href="#roadmap">Roadmap</a></li>
-    <li><a href="#contributing">Contributing</a></li>
-    <li><a href="#support">Support</a></li>
-    <li><a href="#license">License</a></li>
-    <li><a href="#contact">Contact</a></li>
+    <li><a href="#roadmap">The Voyage Ahead</a></li>
+    <li><a href="#contributing">Joinin' the Crew</a></li>
+    <li><a href="#support">Show Yer Colors</a></li>
+    <li><a href="#license">The Code of Conduct</a></li>
+    <li><a href="#contact">Hail and Well Met</a></li>
   </ol>
 </details>
 
 <!-- ABOUT THE PROJECT -->
 
-## ℹ️ About The Project
+## ℹ️ About This Here Project
 
 ![alt text](images/mockup.png "Title")
 
-This repo contains the project made in my youtube chanel called simcoder. This project is a clone of the Instagram android app.
+Arrr! This repository contains the bounty plundered from me YouTube channel, SimCoder. This project be a faithful recreation of the Instagram Android app, fashioned by true corsairs!
 
-It is made using React Native with Expo using firebase services (authentication, firestore and storage).
-The admin panel is made with ReactJS.
-The backend is all NodeJS
+It be crafted usin' React Native with Expo and the mystical Firebase services (authentication, firestore and storage, savvy?).
+The admin panel be made with ReactJS, so help us all.
+The backend be all NodeJS, worthy of the finest sea captain!
 
-In the [master](https://github.com/SimCoderYoutube/InstagramClone/tree/master) branch you have the redesign project which I was previously selling in my website, however you still have access to the youtube series repo in the [youtube_series](https://github.com/SimCoderYoutube/InstagramClone/tree/youtube_series)
+In the [master](https://github.com/SimCoderYoutube/InstagramClone/tree/master) branch ye shall find the redesign project which I was previously sellin' on me website, however ye still have access to the YouTube series treasure in the [youtube_series](https://github.com/SimCoderYoutube/InstagramClone/tree/youtube_series) branch, by Davy Jones' locker!
 
-You can follow the youtube series in the following [link](https://www.youtube.com/watch?v=xE8UEX7vXVQ&list=PLxabZQCAe5fgatwOQny9wKJVs4YD6xkf1)
+Ye can follow the YouTube series journey on this [here link](https://www.youtube.com/watch?v=xE8UEX7vXVQ&list=PLxabZQCAe5fgatwOQny9wKJVs4YD6xkf1)
 
-## 🆕 Getting Started
+## 🆕 Settin' Sail - Getting Started
 
-- ### **Prerequisites**
+- ### **What Ye Need 'Fore Departure**
 
-  - [React Native](https://reactnative.dev/)
-  - [Expo](https://expo.dev/)
-  - [Firebase](https://firebase.google.com/)
+  - [React Native](https://reactnative.dev/) - Aye, the finest framework fer mobile treasures
+  - [Expo](https://expo.dev/) - The ship that'll carry yer code to the seas
+  - [Firebase](https://firebase.google.com/) - The mysterious powers that fuel our vessel
 
 <!-- GETTING STARTED -->
 
-- ### **Installation**
+- ### **How to Load the Cargo**
 
-  In order to deploy the project you'll need to follow the [wiki page](https://github.com/SimCoderYoutube/InstagramClone/wiki/Setup-your-project) dedicated to this effect.
+  To set anchor with this project, ye'll need to follow the [wiki page](https://github.com/SimCoderYoutube/InstagramClone/wiki/Setup-your-project) that's been charted fer this very purpose, ye scurvy dog!
 
-## 🚧 Roadmap
+## 🚧 The Voyage Ahead
 
-See the [open issues](https://github.com/SimCoderYoutube/InstagramClone/issues) for a list of proposed features (and known issues).
+Spy the [open issues](https://github.com/SimCoderYoutube/InstagramClone/issues) fer a list of features that lie on the horizon (and known troubles that plague our ship).
 
 <!-- CONTRIBUTING -->
 
-## ➕ Contributing
+## ➕ Joinin' the Crew
 
-Contributions are what make the open source community such an amazing place to be learn, inspire, and create. Any contributions you make are **greatly appreciated**. Please check the [Wiki](https://github.com/SimCoderYoutube/InstagramClone/wiki/How-to-Contribute)
+Contributions be what make the open source ocean such a magnificent place to learn, inspire, and create treasures. Any contributions ye make be **greatly appreciated**, by the stars! Please check the [Wiki](https://github.com/SimCoderYoutube/InstagramClone/wiki/How-to-Contribute) fer the rules of engagement.
 
-## 🌟 Show your support
+## 🌟 Show Yer Colors
 
-Give a ⭐️ if this project helped you!
+Give a ⭐️ if this project helped ye conquer the digital seas!
 
-And don't forget to subscribe to the [youtube chanel](https://www.youtube.com/c/SimpleCoder?sub_confirmation=1)
+And don't forget to subscribe to the [YouTube channel](https://www.youtube.com/c/SimpleCoder?sub_confirmation=1) fer more bounty!
 
-## 📝 License
+## 📝 The Code of Conduct
 
-Copyright © 2021 [SimCoder](https://github.com/simcoderYoutube).
+Copyright © 2021 [SimCoder](https://github.com/simcoderYoutube), Keeper of the Code.
 
-This project is [Apache License 2.0](https://github.com/SimCoderYoutube/InstagramClone/blob/master/LICENSE) licensed. Some of the dependencies are licensed differently.
+This project be licensed under the [Apache License 2.0](https://github.com/SimCoderYoutube/InstagramClone/blob/master/LICENSE). Some of the dependencies be licensed differently, as be the way of the sea!
 
 <!-- CONTACT -->
 
-## 👤 Contact
+## 👤 Hail and Well Met
 
-**SimCoder**
+**SimCoder - Captain of the Digital Seas**
 
 - Website: www.simcoder.com
 - Twitter: [@simcoder_here](https://twitter.com/simcoder_here)
 - Github: [@simcoderYoutube](https://github.com/simcoderYoutube)
 - Youtube: [SimCoder](https://www.youtube.com/channel/UCQ5xY26cw5Noh6poIE-VBog)
+
+---
+
+*Now hoist the Jolly Roger and set sail with this Instagram Clone, ye fearless buccaneers! ⚓🏴‍☠️*
