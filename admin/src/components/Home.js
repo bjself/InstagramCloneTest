@@ -21,11 +21,12 @@ import { BrowserRouter as Router, Link, Route } from 'react-router-dom'
 import Users from './Users';
 import User from './User';
 import Post from './Post';
+import WeatherWidget from './WeatherWidget';
 import { useHistory } from "react-router-dom";
 
 const drawerWidth = 240;
 
-const useStyles = makeStyles((theme) => ({
+const useStyles = makeStyles((theme) => (({
     root: {
         display: 'flex',
     },
@@ -85,7 +86,10 @@ const useStyles = makeStyles((theme) => ({
         flexGrow: 1,
         padding: theme.spacing(3),
     },
-}));
+    weatherContainer: {
+        marginBottom: theme.spacing(3),
+    },
+})));
 
 export default function Home() {
     const classes = useStyles();
@@ -159,7 +163,10 @@ export default function Home() {
                     </List>
                 </Drawer>
                 <main className={classes.content}>
-                    <div style={{ width: '100%', marginTop: '100px' }}>
+                    <div className={classes.weatherContainer}>
+                        <WeatherWidget />
+                    </div>
+                    <div style={{ width: '100%', marginTop: '20px' }}>
                         <Route path="/" exact component={Users} />
                         <Route path="/Users" exact component={Users} />
                         <Route path="/user/:id" exact component={User} />
