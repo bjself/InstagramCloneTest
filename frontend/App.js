@@ -20,6 +20,7 @@ import EditScreen from './components/main/profile/Edit';
 import ProfileScreen from './components/main/profile/Profile';
 import BlockedScreen from './components/main/random/Blocked';
 import { container } from './components/styles';
+import { getQuoteOfTheDay } from './components/quotes';
 import rootReducer from './redux/reducers';
 
 const store = createStore(rootReducer, applyMiddleware(thunk))
@@ -76,6 +77,8 @@ export class App extends Component {
   }
   render() {
     const { loggedIn, loaded } = this.state;
+    const quoteOfDay = getQuoteOfTheDay();
+    
     if (!loaded) {
       return (
         <Image style={container.splash} source={logo} />
@@ -124,7 +127,7 @@ export class App extends Component {
                 case 'Feed':
                 default: {
                   return {
-                    headerTitle: 'Instagram',
+                    headerTitle: `Instagram - "${quoteOfDay}"`,
                   };
                 }
               }
