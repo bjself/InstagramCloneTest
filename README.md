@@ -90,7 +90,16 @@ See the [open issues](https://github.com/SimCoderYoutube/InstagramClone/issues) 
 
 ## ➕ Contributing
 
-Contributions are what make the open source community such an amazing place to be learn, inspire, and create. Any contributions you make are **greatly appreciated**. Please check the [Wiki](https://github.com/SimCoderYoutube/InstagramClone/wiki/How-to-Contribute)
+Contributions are what make the open source community such an amazing place to learn, inspire, and create. Any contributions you make are **greatly appreciated**!
+
+Please read **[CONTRIBUTING.md](CONTRIBUTING.md)** for full details on:
+
+- Setting up Firebase and configuring credentials
+- Installing and running the frontend, admin panel, and Cloud Functions
+- Code conventions and project structure
+- How to open a pull request
+
+For quick questions or ideas, feel free to open an [issue](https://github.com/bjself/InstagramCloneTest/issues).
 
 ## 🌟 Show your support
 
