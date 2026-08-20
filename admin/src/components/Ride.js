@@ -50,7 +50,7 @@ export default function Ride(props) {
 
             <Paper className="col-md-3 m-3" elevation={5}>
                 <div style={{ alignItems: 'center' }} className="p-5 ">
-                    <Avatar style={{ height: '200px', width: '200px' }} className="m-auto mb-4" alt="Travis Howard" src={user.image} />
+                    <Avatar style={{ height: '200px', width: '200px' }} className="m-auto mb-4" alt={`Profile picture for ${user.username || user.name}`} src={user.image} />
                     <h3 style={{ textAlign: 'center' }} className="mt-4">{user.name}</h3>
                     <h6 style={{ textAlign: 'center' }}>{user.username}</h6>
                 </div>
@@ -77,9 +77,9 @@ export default function Ride(props) {
 
                     <Divider className="mb-3" />
                     <p style={{ textAlign: 'left', fontWeight: 'bold' }}>Identification</p>
-                    <Button variant="contained" color="primary" className="mr-2 col-md-3" href={user.identification.backIdImageURL} target="_blank">Back driver's license</Button>
-                    <Button variant="contained" color="primary" className="mr-2 col-md-3" href={user.identification.backIdImageURL} target="_blank">Front driver's license</Button>
-                    <Button variant="contained" color="primary" className="mr-2 col-md-3" href={user.identification.photo} target="_blank">Photo</Button>
+                    <Button variant="contained" color="primary" className="mr-2 col-md-3" href={user.identification.backIdImageURL} target="_blank" rel="noopener noreferrer" aria-label="View back of driver's license in new window">Back driver's license</Button>
+                    <Button variant="contained" color="primary" className="mr-2 col-md-3" href={user.identification.backIdImageURL} target="_blank" rel="noopener noreferrer" aria-label="View front of driver's license in new window">Front driver's license</Button>
+                    <Button variant="contained" color="primary" className="mr-2 col-md-3" href={user.identification.photo} target="_blank" rel="noopener noreferrer" aria-label="View photo in new window">Photo</Button>
                 </div>
             </Paper>
 

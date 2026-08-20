@@ -98,7 +98,7 @@ export default function User(props) {
 
             <Paper className="col-md-3 m-3" elevation={5}>
                 <div style={{ alignItems: 'center' }} className="p-5 ">
-                    <Avatar style={{ height: '200px', width: '200px' }} className="m-auto mb-4" alt="Travis Howard" src={user.image} />
+                    <Avatar style={{ height: '200px', width: '200px' }} className="m-auto mb-4" alt={`Profile picture for ${user.username || user.name}`} src={user.image} />
                     <h3 style={{ textAlign: 'center' }} className="mt-4">{user.name}</h3>
                     <h6 style={{ textAlign: 'center' }}>{user.username}</h6>
                 </div>
@@ -142,7 +142,7 @@ export default function User(props) {
             </Paper>
 
             <Paper className="col-md-8 m-3 p-5" elevation={5} style={{height: 400}}>
-                <DataGrid rows={posts} columns={columns} pageSize={5} columns={columns.map((column) => ({
+                <DataGrid rows={posts} pageSize={5} columns={columns.map((column) => ({
                     ...column,
                     disableClickEventBubbling: true,
                 }))} />
