@@ -134,7 +134,7 @@ export default function Post(props) {
                     <p>{date.toString()}</p>
                 </div>
 
-                <Button variant="contained" color="primary" className="mr-2 col-md-3" href={post.downloadURL} target="_blank">Open Media</Button>
+                <Button variant="contained" color="primary" className="mr-2 col-md-3" href={post.downloadURL} target="_blank" rel="noopener noreferrer" aria-label="Open media in new window">Open Media</Button>
                 <Button variant="contained" color="secondary" onClick={() => { deletePost() }}>
                     Delete
                 </Button>
@@ -142,7 +142,7 @@ export default function Post(props) {
 
 
             <Paper className="m-3" style={{ height: 400, width: '100%', marginTop: '100px', backgroundColor: 'white' }} elevation={5}>
-                <DataGrid rows={comments} columns={columns} pageSize={5} columns={columns.map((column) => ({
+                <DataGrid rows={comments} pageSize={5} columns={columns.map((column) => ({
                     ...column,
                     disableClickEventBubbling: true,
                 }))} />
