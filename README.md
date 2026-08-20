@@ -114,3 +114,68 @@ This project is [Apache License 2.0](https://github.com/SimCoderYoutube/Instagra
 - Twitter: [@simcoder_here](https://twitter.com/simcoder_here)
 - Github: [@simcoderYoutube](https://github.com/simcoderYoutube)
 - Youtube: [SimCoder](https://www.youtube.com/channel/UCQ5xY26cw5Noh6poIE-VBog)
+
+---
+
+# 📖 Versión en Español
+
+## ℹ️ Acerca del Proyecto
+
+![alt text](images/mockup.png "Title")
+
+Este repositorio contiene el proyecto realizado en mi canal de YouTube llamado simcoder. Este proyecto es un clon de la aplicación de Instagram para Android.
+
+Está hecho usando React Native con Expo utilizando los servicios de Firebase (autenticación, firestore y almacenamiento).
+El panel de administración está hecho con ReactJS.
+El backend es todo NodeJS
+
+En la rama [master](https://github.com/SimCoderYoutube/InstagramClone/tree/master) tienes el proyecto rediseñado que anteriormente estaba vendiendo en mi sitio web, sin embargo todavía tienes acceso al repositorio de la serie de YouTube en la rama [youtube_series](https://github.com/SimCoderYoutube/InstagramClone/tree/youtube_series)
+
+Puedes seguir la serie de YouTube en el siguiente [enlace](https://www.youtube.com/watch?v=xE8UEX7vXVQ&list=PLxabZQCAe5fgatwOQny9wKJVs4YD6xkf1)
+
+## 🆕 Empezando
+
+- ### **Requisitos Previos**
+
+  - [React Native](https://reactnative.dev/)
+  - [Expo](https://expo.dev/)
+  - [Firebase](https://firebase.google.com/)
+
+<!-- INSTALACIÓN -->
+
+- ### **Instalación**
+
+  Para desplegar el proyecto, deberás seguir la [página del wiki](https://github.com/SimCoderYoutube/InstagramClone/wiki/Setup-your-project) dedicada a este efecto.
+
+## 🚧 Hoja de Ruta
+
+Consulta los [problemas abiertos](https://github.com/SimCoderYoutube/InstagramClone/issues) para obtener una lista de características propuestas (y problemas conocidos).
+
+<!-- CONTRIBUYENDO -->
+
+## ➕ Contribuyendo
+
+Las contribuciones son lo que hace que la comunidad de código abierto sea un lugar tan increíble para aprender, inspirar y crear. Cualquier contribución que hagas es **muy apreciada**. Por favor, consulta el [Wiki](https://github.com/SimCoderYoutube/InstagramClone/wiki/How-to-Contribute)
+
+## 🌟 Muestra tu apoyo
+
+¡Dale una ⭐️ si este proyecto te ayudó!
+
+Y no olvides suscribirte al [canal de YouTube](https://www.youtube.com/c/SimpleCoder?sub_confirmation=1)
+
+## 📝 Licencia
+
+Derechos de autor © 2021 [SimCoder](https://github.com/simcoderYoutube).
+
+Este proyecto está bajo la licencia [Apache License 2.0](https://github.com/SimCoderYoutube/InstagramClone/blob/master/LICENSE). Algunas de las dependencias están licenciadas de manera diferente.
+
+<!-- CONTACTO -->
+
+## 👤 Contacto
+
+**SimCoder**
+
+- Sitio web: www.simcoder.com
+- Twitter: [@simcoder_here](https://twitter.com/simcoder_here)
+- Github: [@simcoderYoutube](https://github.com/simcoderYoutube)
+- Youtube: [SimCoder](https://www.youtube.com/channel/UCQ5xY26cw5Noh6poIE-VBog)
