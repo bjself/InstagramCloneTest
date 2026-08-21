@@ -1,0 +1,77 @@
+{
+  "app": {
+    "name": "Instagram Clone",
+    "title": "Instagram"
+  },
+  "auth": {
+    "email": "Email",
+    "password": "Password",
+    "signIn": "Sign In",
+    "signUp": "Sign Up",
+    "dontHaveAccount": "Don't have an account? Sign Up.",
+    "alreadyHaveAccount": "Already have an account? Sign In.",
+    "register": "Register",
+    "login": "Login",
+    "logout": "Logout",
+    "emailRequired": "Email is required",
+    "passwordRequired": "Password is required",
+    "passwordShort": "Password must be at least 6 characters"
+  },
+  "navigation": {
+    "feed": "Feed",
+    "search": "Search",
+    "camera": "Camera",
+    "chat": "Chat",
+    "profile": "Profile",
+    "home": "Home"
+  },
+  "profile": {
+    "edit": "Edit Profile",
+    "followers": "Followers",
+    "following": "Following",
+    "posts": "Posts",
+    "settings": "Settings",
+    "language": "Language",
+    "blocked": "You have been blocked",
+    "username": "Username",
+    "bio": "Bio",
+    "website": "Website",
+    "save": "Save",
+    "cancel": "Cancel"
+  },
+  "post": {
+    "comment": "Comment",
+    "like": "Like",
+    "share": "Share",
+    "delete": "Delete",
+    "caption": "Caption",
+    "noComments": "No comments yet",
+    "addComment": "Add a comment..."
+  },
+  "chat": {
+    "message": "Message",
+    "send": "Send",
+    "noChats": "No chats yet",
+    "startConversation": "Start a conversation",
+    "typing": "typing...",
+    "online": "Online",
+    "offline": "Offline"
+  },
+  "common": {
+    "loading": "Loading...",
+    "error": "Error",
+    "success": "Success",
+    "close": "Close",
+    "back": "Back",
+    "next": "Next",
+    "skip": "Skip",
+    "done": "Done",
+    "yes": "Yes",
+    "no": "No",
+    "ok": "OK",
+    "add": "Add",
+    "remove": "Remove",
+    "more": "More",
+    "less": "Less"
+  }
+}

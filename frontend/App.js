@@ -21,6 +21,7 @@ import ProfileScreen from './components/main/profile/Profile';
 import BlockedScreen from './components/main/random/Blocked';
 import { container } from './components/styles';
 import rootReducer from './redux/reducers';
+import { t } from './localization';
 
 const store = createStore(rootReducer, applyMiddleware(thunk))
 
@@ -99,32 +100,34 @@ export class App extends Component {
           <Stack.Navigator initialRouteName="Main">
             <Stack.Screen key={Date.now()} name="Main" component={MainScreen} navigation={this.props.navigation} options={({ route }) => {
               const routeName = getFocusedRouteNameFromRoute(route) ?? 'Feed';
+              const state = store.getState();
+              const language = state.localization?.language || 'en';
 
               switch (routeName) {
                 case 'Camera': {
                   return {
-                    headerTitle: 'Camera',
+                    headerTitle: t('navigation.camera', language),
                   };
                 }
                 case 'chat': {
                   return {
-                    headerTitle: 'Chat',
+                    headerTitle: t('navigation.chat', language),
                   };
                 }
                 case 'Profile': {
                   return {
-                    headerTitle: 'Profile',
+                    headerTitle: t('navigation.profile', language),
                   };
                 }
                 case 'Search': {
                   return {
-                    headerTitle: 'Search',
+                    headerTitle: t('navigation.search', language),
                   };
                 }
                 case 'Feed':
                 default: {
                   return {
-                    headerTitle: 'Instagram',
+                    headerTitle: t('app.title', language),
                   };
                 }
               }

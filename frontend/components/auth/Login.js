@@ -1,11 +1,14 @@
 import firebase from 'firebase';
 import React, { useState } from 'react';
 import { Button, Text, TextInput, View } from 'react-native';
+import { connect } from 'react-redux';
 import { container, form } from '../styles';
+import { t } from '../../localization';
 
-export default function Login(props) {
+function Login(props) {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
+    const language = props.localization?.language || 'en';
 
     const onSignUp = () => {
         firebase.auth().signInWithEmailAndPassword(email, password)
@@ -16,12 +19,12 @@ export default function Login(props) {
             <View style={container.formCenter}>
                 <TextInput
                     style={form.textInput}
-                    placeholder="email"
+                    placeholder={t('auth.email', language)}
                     onChangeText={(email) => setEmail(email)}
                 />
                 <TextInput
                     style={form.textInput}
-                    placeholder="password"
+                    placeholder={t('auth.password', language)}
                     secureTextEntry={true}
                     onChangeText={(password) => setPassword(password)}
                 />
@@ -29,19 +32,26 @@ export default function Login(props) {
                 <Button
                     style={form.button}
                     onPress={() => onSignUp()}
-                    title="Sign In"
+                    title={t('auth.signIn', language)}
                 />
             </View>
 
 
             <View style={form.bottomButton} >
                 <Text
-                    title="Register"
+                    title={t('auth.register', language)}
                     onPress={() => props.navigation.navigate("Register")} >
-                    Don't have an account? SignUp.
+                    {t('auth.dontHaveAccount', language)}
                 </Text>
             </View>
         </View>
     )
 }
+
+const mapStateToProps = (store) => ({
+    localization: store.localization,
+});
+
+export default connect(mapStateToProps)(Login);
+
 

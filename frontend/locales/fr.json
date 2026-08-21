@@ -1,0 +1,77 @@
+{
+  "app": {
+    "name": "Clone Instagram",
+    "title": "Instagram"
+  },
+  "auth": {
+    "email": "Email",
+    "password": "Mot de passe",
+    "signIn": "Se connecter",
+    "signUp": "S'inscrire",
+    "dontHaveAccount": "Vous n'avez pas de compte? S'inscrire.",
+    "alreadyHaveAccount": "Vous avez déjà un compte? Se connecter.",
+    "register": "Inscription",
+    "login": "Connexion",
+    "logout": "Déconnexion",
+    "emailRequired": "L'email est requis",
+    "passwordRequired": "Le mot de passe est requis",
+    "passwordShort": "Le mot de passe doit contenir au moins 6 caractères"
+  },
+  "navigation": {
+    "feed": "Flux",
+    "search": "Rechercher",
+    "camera": "Appareil photo",
+    "chat": "Chat",
+    "profile": "Profil",
+    "home": "Accueil"
+  },
+  "profile": {
+    "edit": "Modifier le profil",
+    "followers": "Abonnés",
+    "following": "Abonnements",
+    "posts": "Publications",
+    "settings": "Paramètres",
+    "language": "Langue",
+    "blocked": "Vous avez été bloqué",
+    "username": "Nom d'utilisateur",
+    "bio": "Bio",
+    "website": "Site Web",
+    "save": "Enregistrer",
+    "cancel": "Annuler"
+  },
+  "post": {
+    "comment": "Commentaire",
+    "like": "J'aime",
+    "share": "Partager",
+    "delete": "Supprimer",
+    "caption": "Légende",
+    "noComments": "Pas encore de commentaires",
+    "addComment": "Ajouter un commentaire..."
+  },
+  "chat": {
+    "message": "Message",
+    "send": "Envoyer",
+    "noChats": "Pas encore de chats",
+    "startConversation": "Démarrer une conversation",
+    "typing": "en train d'écrire...",
+    "online": "En ligne",
+    "offline": "Hors ligne"
+  },
+  "common": {
+    "loading": "Chargement...",
+    "error": "Erreur",
+    "success": "Succès",
+    "close": "Fermer",
+    "back": "Retour",
+    "next": "Suivant",
+    "skip": "Passer",
+    "done": "Fait",
+    "yes": "Oui",
+    "no": "Non",
+    "ok": "OK",
+    "add": "Ajouter",
+    "remove": "Supprimer",
+    "more": "Plus",
+    "less": "Moins"
+  }
+}

@@ -7,6 +7,7 @@ import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityI
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { reload } from '../redux/actions/index';
+import { t } from '../localization';
 import CameraScreen from './main/add/Camera';
 import ChatListScreen from './main/chat/List';
 import FeedScreen from './main/post/Feed';
@@ -19,6 +20,7 @@ const Tab = createMaterialBottomTabNavigator();
 function Main(props) {
     const [unreadChats, setUnreadChats] = useState(false)
     const [lastNot, setLastNot] = useState(false)
+    const language = props.localization?.language || 'en';
 
     const lastNotificationResponse = Notifications.useLastNotificationResponse();
 
@@ -94,7 +96,7 @@ function Main(props) {
                     }} />
                 <Tab.Screen key={Date.now()} name="Search" component={SearchScreen} navigation={props.navigation}
                     options={{
-                        tabBarLabel: 'Seach',
+                        tabBarLabel: t('navigation.search', language),
                         tabBarIcon: ({ color, size }) => (
                             <MaterialCommunityIcons name="magnify" color={color} size={26} />
                         ),
@@ -145,7 +147,9 @@ const mapStateToProps = (store) => ({
     currentUser: store.userState.currentUser,
     chats: store.userState.chats,
     friendsRequestsReceived: store.userState.friendsRequestsReceived,
+    localization: store.localization,
 })
 const mapDispatchProps = (dispatch) => bindActionCreators({ reload }, dispatch);
 
 export default connect(mapStateToProps, mapDispatchProps)(Main);
+
