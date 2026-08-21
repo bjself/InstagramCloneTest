@@ -27,6 +27,7 @@ export default function VideoScreen(props) {
     const [isFlash, setIsFlash] = useState(false);
     const [isVideoRecording, setIsVideoRecording] = useState(false);
     const [type, setType] = useState(0);
+    const [postType, setPostType] = useState(0);
     const [showGallery, setShowGallery] = useState(true)
     const [galleryItems, setGalleryItems] = useState([])
     const [galleryScrollRef, setGalleryScrollRef] = useState(null)
@@ -61,7 +62,7 @@ export default function VideoScreen(props) {
             const data = await cameraRef.current.takePictureAsync(options);
             const source = data.uri;
             if (source) {
-                props.navigation.navigate('Save', { source, imageSource: null, type })
+                props.navigation.navigate('Save', { source, imageSource: null, type, postType })
             }
         }
     };
@@ -78,7 +79,7 @@ export default function VideoScreen(props) {
                     const data = await videoRecordPromise;
                     const source = data.uri;
                     let imageSource = await generateThumbnail(source)
-                    props.navigation.navigate('Save', { source, imageSource, type })
+                    props.navigation.navigate('Save', { source, imageSource, type, postType })
 
                 }
             } catch (error) {
@@ -132,7 +133,8 @@ export default function VideoScreen(props) {
         props.navigation.navigate('Save', {
             source: loadedAsset.localUri,
             type,
-            imageSource
+            imageSource,
+            postType
         })
     }
 
@@ -186,6 +188,23 @@ export default function VideoScreen(props) {
                 ref={(ref) => setGalleryScrollRef(ref)}
                 style={[container.container, utils.backgroundWhite]}>
 
+                <View style={{ flexDirection: 'row', justifyContent: 'space-around', paddingVertical: 10, backgroundColor: '#f0f0f0' }}>
+                    <TouchableOpacity
+                        style={{ paddingHorizontal: 15, paddingVertical: 8, borderRadius: 20, backgroundColor: postType === 0 ? 'black' : 'white', borderWidth: 1 }}
+                        onPress={() => setPostType(0)}>
+                        <Text style={{ color: postType === 0 ? 'white' : 'black', fontWeight: 'bold' }}>Video</Text>
+                    </TouchableOpacity>
+                    <TouchableOpacity
+                        style={{ paddingHorizontal: 15, paddingVertical: 8, borderRadius: 20, backgroundColor: postType === 1 ? 'black' : 'white', borderWidth: 1 }}
+                        onPress={() => setPostType(1)}>
+                        <Text style={{ color: postType === 1 ? 'white' : 'black', fontWeight: 'bold' }}>Photo</Text>
+                    </TouchableOpacity>
+                    <TouchableOpacity
+                        style={{ paddingHorizontal: 15, paddingVertical: 8, borderRadius: 20, backgroundColor: postType === 2 ? 'black' : 'white', borderWidth: 1 }}
+                        onPress={() => setPostType(2)}>
+                        <Text style={{ color: postType === 2 ? 'white' : 'black', fontWeight: 'bold' }}>For Sale</Text>
+                    </TouchableOpacity>
+                </View>
                 <View
                     style={[{ aspectRatio: 1 / 1, height: WINDOW_WIDTH }]}>
                     <Image

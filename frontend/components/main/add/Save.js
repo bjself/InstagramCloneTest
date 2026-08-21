@@ -22,6 +22,7 @@ function Save(props) {
     const [error, setError] = useState(false)
     const [data, setData] = useState("")
     const [keyword, setKeyword] = useState("")
+    const [postType, setPostType] = useState(props.route.params.postType || 0)
 
 
     useLayoutEffect(() => {
@@ -72,6 +73,7 @@ function Save(props) {
             likesCount: 0,
             commentsCount: 0,
             type: props.route.params.type,
+            postType: postType,
             creation: firebase.firestore.FieldValue.serverTimestamp()
         }
         if (downloadURLStill != null) {
@@ -170,6 +172,24 @@ function Save(props) {
             ) : (
                 <View style={[container.container]}>
                     <View style={[container.container, utils.backgroundWhite, utils.padding15]}>
+
+                        <View style={{ flexDirection: 'row', justifyContent: 'space-around', marginBottom: 15, backgroundColor: '#f0f0f0', padding: 10, borderRadius: 10 }}>
+                            <TouchableOpacity
+                                style={{ paddingHorizontal: 12, paddingVertical: 6, borderRadius: 15, backgroundColor: postType === 0 ? 'black' : 'white', borderWidth: 1 }}
+                                onPress={() => setPostType(0)}>
+                                <Text style={{ color: postType === 0 ? 'white' : 'black', fontWeight: 'bold', fontSize: 12 }}>Video</Text>
+                            </TouchableOpacity>
+                            <TouchableOpacity
+                                style={{ paddingHorizontal: 12, paddingVertical: 6, borderRadius: 15, backgroundColor: postType === 1 ? 'black' : 'white', borderWidth: 1 }}
+                                onPress={() => setPostType(1)}>
+                                <Text style={{ color: postType === 1 ? 'white' : 'black', fontWeight: 'bold', fontSize: 12 }}>Photo</Text>
+                            </TouchableOpacity>
+                            <TouchableOpacity
+                                style={{ paddingHorizontal: 12, paddingVertical: 6, borderRadius: 15, backgroundColor: postType === 2 ? 'black' : 'white', borderWidth: 1 }}
+                                onPress={() => setPostType(2)}>
+                                <Text style={{ color: postType === 2 ? 'white' : 'black', fontWeight: 'bold', fontSize: 12 }}>For Sale</Text>
+                            </TouchableOpacity>
+                        </View>
 
                         <View style={[{ marginBottom: 20, width: '100%' }]}>
 
