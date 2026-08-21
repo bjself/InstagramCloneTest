@@ -233,6 +233,9 @@ function Post(props) {
                         }
                         <View style={{ alignSelf: 'center' }}>
                             <Text style={[text.bold, text.medium, { marginBottom: 0 }]} >{user.name}</Text>
+                            {item.postType === 2 && (
+                                <Text style={[text.small, { color: 'green', fontWeight: 'bold' }]}>For Sale</Text>
+                            )}
                         </View>
 
                     </TouchableOpacity>
