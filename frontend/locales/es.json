@@ -1,0 +1,77 @@
+{
+  "app": {
+    "name": "Clon de Instagram",
+    "title": "Instagram"
+  },
+  "auth": {
+    "email": "Correo electrónico",
+    "password": "Contraseña",
+    "signIn": "Iniciar sesión",
+    "signUp": "Registrarse",
+    "dontHaveAccount": "¿No tienes cuenta? Regístrate.",
+    "alreadyHaveAccount": "¿Ya tienes cuenta? Inicia sesión.",
+    "register": "Registro",
+    "login": "Iniciar sesión",
+    "logout": "Cerrar sesión",
+    "emailRequired": "El correo electrónico es requerido",
+    "passwordRequired": "La contraseña es requerida",
+    "passwordShort": "La contraseña debe tener al menos 6 caracteres"
+  },
+  "navigation": {
+    "feed": "Feed",
+    "search": "Buscar",
+    "camera": "Cámara",
+    "chat": "Chat",
+    "profile": "Perfil",
+    "home": "Inicio"
+  },
+  "profile": {
+    "edit": "Editar perfil",
+    "followers": "Seguidores",
+    "following": "Siguiendo",
+    "posts": "Publicaciones",
+    "settings": "Configuración",
+    "language": "Idioma",
+    "blocked": "Ha sido bloqueado",
+    "username": "Nombre de usuario",
+    "bio": "Biografía",
+    "website": "Sitio web",
+    "save": "Guardar",
+    "cancel": "Cancelar"
+  },
+  "post": {
+    "comment": "Comentario",
+    "like": "Me gusta",
+    "share": "Compartir",
+    "delete": "Eliminar",
+    "caption": "Descripción",
+    "noComments": "Sin comentarios aún",
+    "addComment": "Añadir un comentario..."
+  },
+  "chat": {
+    "message": "Mensaje",
+    "send": "Enviar",
+    "noChats": "Sin chats aún",
+    "startConversation": "Inicia una conversación",
+    "typing": "escribiendo...",
+    "online": "En línea",
+    "offline": "Desconectado"
+  },
+  "common": {
+    "loading": "Cargando...",
+    "error": "Error",
+    "success": "Éxito",
+    "close": "Cerrar",
+    "back": "Atrás",
+    "next": "Siguiente",
+    "skip": "Saltar",
+    "done": "Hecho",
+    "yes": "Sí",
+    "no": "No",
+    "ok": "OK",
+    "add": "Añadir",
+    "remove": "Quitar",
+    "more": "Más",
+    "less": "Menos"
+  }
+}
