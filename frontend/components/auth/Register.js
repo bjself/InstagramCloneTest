@@ -14,7 +14,7 @@ export default function Register(props) {
     const [isValid, setIsValid] = useState(true);
 
     const onRegister = () => {
-        if (name.lenght == 0 || username.lenght == 0 || email.length == 0 || password.length == 0) {
+        if (name.length == 0 || username.length == 0 || email.length == 0 || password.length == 0) {
             setIsValid({ bool: true, boolSnack: true, message: "Please fill out everything" })
             return;
         }
