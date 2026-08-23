@@ -1,7 +1,7 @@
 import * as Notifications from 'expo-notifications';
 import firebase from 'firebase';
 import { Constants } from 'react-native-unimodules';
-import { CLEAR_DATA, USERS_DATA_STATE_CHANGE, USERS_LIKES_STATE_CHANGE, USERS_POSTS_STATE_CHANGE, USER_CHATS_STATE_CHANGE, USER_FOLLOWING_STATE_CHANGE, USER_POSTS_STATE_CHANGE, USER_STATE_CHANGE } from '../constants/index';
+import { CLEAR_DATA, USERS_DATA_STATE_CHANGE, USERS_LIKES_STATE_CHANGE, USERS_POSTS_STATE_CHANGE, USER_CHATS_STATE_CHANGE, USER_FOLLOWING_STATE_CHANGE, USER_POSTS_STATE_CHANGE, USER_STATE_CHANGE, USER_ONLINE_STATUS_CHANGE } from '../constants/index';
 require('firebase/firestore')
 
 
@@ -23,8 +23,48 @@ export function reload() {
         dispatch(fetchUserPosts())
         dispatch(fetchUserFollowing())
         dispatch(fetchUserChats())
-
+        dispatch(setUserOnline())
     })
+}
+
+export const setUserOnline = () => dispatch => {
+    const currentUserUid = firebase.auth().currentUser.uid;
+    
+    // Set user as online
+    firebase.firestore()
+        .collection("users")
+        .doc(currentUserUid)
+        .update({
+            isOnline: true,
+            lastSeen: firebase.firestore.FieldValue.serverTimestamp()
+        })
+        .then(() => {
+            dispatch({ type: USER_ONLINE_STATUS_CHANGE, isOnline: true })
+        })
+        .catch((error) => {
+            console.log("Error setting online status:", error);
+        })
+}
+
+export const setUserOffline = () => dispatch => {
+    const currentUserUid = firebase.auth().currentUser?.uid;
+    
+    if (!currentUserUid) return;
+    
+    // Set user as offline
+    firebase.firestore()
+        .collection("users")
+        .doc(currentUserUid)
+        .update({
+            isOnline: false,
+            lastSeen: firebase.firestore.FieldValue.serverTimestamp()
+        })
+        .then(() => {
+            dispatch({ type: USER_ONLINE_STATUS_CHANGE, isOnline: false })
+        })
+        .catch((error) => {
+            console.log("Error setting offline status:", error);
+        })
 }
 
 export const setNotificationService = () => async dispatch => {

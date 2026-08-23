@@ -4,12 +4,13 @@ import 'expo-asset';
 import * as firebase from 'firebase';
 import _ from 'lodash';
 import React, { Component } from 'react';
-import { Image, LogBox } from 'react-native';
+import { Image, LogBox, View } from 'react-native';
 import { Provider } from 'react-redux';
 import { applyMiddleware, createStore } from 'redux';
 import thunk from 'redux-thunk';
 import LoginScreen from './components/auth/Login';
 import RegisterScreen from './components/auth/Register';
+import HeaderTitle from './components/HeaderTitle';
 import MainScreen from './components/Main';
 import SaveScreen from './components/main/add/Save';
 import ChatScreen from './components/main/chat/Chat';
@@ -21,6 +22,7 @@ import ProfileScreen from './components/main/profile/Profile';
 import BlockedScreen from './components/main/random/Blocked';
 import { container } from './components/styles';
 import rootReducer from './redux/reducers';
+import { setUserOnline, setUserOffline } from './redux/actions/index';
 
 const store = createStore(rootReducer, applyMiddleware(thunk))
 
@@ -71,8 +73,18 @@ export class App extends Component {
           loggedIn: true,
           loaded: true,
         })
+        // Set user online when app launches
+        store.dispatch(setUserOnline())
       }
     })
+
+    // Handle app background/foreground
+    this.appStateSubscription = firebase.firestore().enableNetwork()
+  }
+
+  componentWillUnmount() {
+    // Set user offline when app closes or component unmounts
+    store.dispatch(setUserOffline())
   }
   render() {
     const { loggedIn, loaded } = this.state;
@@ -96,39 +108,46 @@ export class App extends Component {
     return (
       <Provider store={store}>
         <NavigationContainer >
-          <Stack.Navigator initialRouteName="Main">
-            <Stack.Screen key={Date.now()} name="Main" component={MainScreen} navigation={this.props.navigation} options={({ route }) => {
-              const routeName = getFocusedRouteNameFromRoute(route) ?? 'Feed';
-
-              switch (routeName) {
-                case 'Camera': {
-                  return {
-                    headerTitle: 'Camera',
-                  };
-                }
-                case 'chat': {
-                  return {
-                    headerTitle: 'Chat',
-                  };
-                }
-                case 'Profile': {
-                  return {
-                    headerTitle: 'Profile',
-                  };
-                }
-                case 'Search': {
-                  return {
-                    headerTitle: 'Search',
-                  };
-                }
-                case 'Feed':
-                default: {
-                  return {
-                    headerTitle: 'Instagram',
-                  };
-                }
+          <Stack.Navigator 
+            initialRouteName="Main"
+            screenOptions={{
+              headerTitleStyle: {
+                display: 'flex',
+                flexDirection: 'row',
+                alignItems: 'center',
               }
             }}
+          >
+            <Stack.Screen 
+              key={Date.now()} 
+              name="Main" 
+              component={MainScreen} 
+              navigation={this.props.navigation} 
+              options={({ route, navigation }) => {
+                const routeName = getFocusedRouteNameFromRoute(route) ?? 'Feed';
+
+                const getHeaderTitle = () => {
+                  switch (routeName) {
+                    case 'Camera':
+                      return 'Camera';
+                    case 'chat':
+                      return 'Chat';
+                    case 'Profile':
+                      return 'Profile';
+                    case 'Search':
+                      return 'Search';
+                    case 'Feed':
+                    default:
+                      return 'Instagram';
+                  }
+                };
+
+                return {
+                  headerTitle: () => (
+                    <HeaderTitle title={getHeaderTitle()} />
+                  ),
+                };
+              }}
             />
             <Stack.Screen key={Date.now()} name="Save" component={SaveScreen} navigation={this.props.navigation} />
             <Stack.Screen key={Date.now()} name="video" component={SaveScreen} navigation={this.props.navigation} />
