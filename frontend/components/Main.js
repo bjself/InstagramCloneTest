@@ -7,6 +7,7 @@ import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityI
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { reload } from '../redux/actions/index';
+import WeatherBanner from './WeatherBanner';
 import CameraScreen from './main/add/Camera';
 import ChatListScreen from './main/chat/List';
 import FeedScreen from './main/post/Feed';
@@ -77,6 +78,7 @@ function Main(props) {
 
     return (
         <View style={{ flex: 1, backgroundColor: 'white' }}>
+            <WeatherBanner />
             <Tab.Navigator initialRouteName="Feed"
 
                 labeled={false}

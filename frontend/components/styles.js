@@ -285,4 +285,27 @@ const text = StyleSheet.create({
 
 })
 
-export { container, form, text, utils, navbar }    
+const weather = StyleSheet.create({
+    banner: {
+        backgroundColor: '#f0f0f0',
+        paddingVertical: 8,
+        paddingHorizontal: 15,
+        borderBottomWidth: 1,
+        borderBottomColor: '#e0e0e0',
+        flexDirection: 'row',
+        alignItems: 'center',
+        justifyContent: 'center',
+        gap: 10
+    },
+    temperature: {
+        fontSize: 14,
+        fontWeight: '600',
+        color: '#333'
+    },
+    condition: {
+        fontSize: 13,
+        color: '#666'
+    }
+})
+
+export { container, form, text, utils, navbar, weather }    
