@@ -74,3 +74,18 @@ exports.addComment = functions.firestore.document('/posts/{creatorId}/userPosts/
                 commentsCount: admin.firestore.FieldValue.increment(1)
             })
     })
+
+exports.promotePost = functions.https.onCall((data, context) => {
+    const postId = data.postId;
+    const creatorId = data.creatorId;
+    const promoted = data.promoted;
+
+    return db
+        .collection('posts')
+        .doc(creatorId)
+        .collection('userPosts')
+        .doc(postId)
+        .update({
+            promoted: promoted
+        })
+})
