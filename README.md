@@ -16,7 +16,7 @@
   <h3 align="center">Instagram Clone</h3>
 
   <p align="center">
-    A Instagram clone app made with React Native and firebase
+    <em>A whimsical tale in verse of code and creation!</em>
     <br />
     <a href="https://github.com/SimCoderYoutube/InstagramClone/wiki"><strong>Explore the docs »</strong></a>
     <br />
@@ -29,21 +29,10 @@
 
 <!-- TABLE OF CONTENTS -->
 <details open="open">
-  <summary><h2 style="display: inline-block">Table of Contents</h2></summary>
+  <summary><h2 style="display: inline-block">📖 Table of Contents</h2></summary>
   <ol>
-    <li>
-      <a href="#about-the-project">About The Project</a>
-      <ul>
-        <li><a href="#built-with">Built With</a></li>
-      </ul>
-    </li>
-    <li>
-      <a href="#getting-started">Getting Started</a>
-      <ul>
-        <li><a href="#prerequisites">Prerequisites</a></li>
-        <li><a href="#installation">Installation</a></li>
-      </ul>
-    </li>
+    <li><a href="#about-the-project">About The Project</a></li>
+    <li><a href="#getting-started">Getting Started</a></li>
     <li><a href="#roadmap">Roadmap</a></li>
     <li><a href="#contributing">Contributing</a></li>
     <li><a href="#support">Support</a></li>
@@ -58,57 +47,86 @@
 
 ![alt text](images/mockup.png "Title")
 
-This repo contains the project made in my youtube chanel called simcoder. This project is a clone of the Instagram android app.
+*Hearken now to tales of code so grand,*  
+*A project born from a developer's hand.*  
+*On YouTube's stage, from SimCoder's creation,*  
+*An Instagram clone of grand reputation.*
 
-It is made using React Native with Expo using firebase services (authentication, firestore and storage).
-The admin panel is made with ReactJS.
-The backend is all NodeJS
+*With React Native and Expo so fine,*  
+*Firebase powers each feature and line.*  
+*Authentication, firestore, and storage unite,*  
+*To build an app that shines oh so bright.*
 
-In the [master](https://github.com/SimCoderYoutube/InstagramClone/tree/master) branch you have the redesign project which I was previously selling in my website, however you still have access to the youtube series repo in the [youtube_series](https://github.com/SimCoderYoutube/InstagramClone/tree/youtube_series)
+*The admin panel crafted in ReactJS,*  
+*The backend in NodeJS, running complex mix.*  
+*In master branch, a redesign so new,*  
+*While youtube_series holds the old view.*
 
-You can follow the youtube series in the following [link](https://www.youtube.com/watch?v=xE8UEX7vXVQ&list=PLxabZQCAe5fgatwOQny9wKJVs4YD6xkf1)
+*Come follow the series on YouTube's domain,*  
+*Where step by step the knowledge shall rain:*  
+*[Watch the journey unfold](https://www.youtube.com/watch?v=xE8UEX7vXVQ&list=PLxabZQCAe5fgatwOQny9wKJVs4YD6xkf1)*
 
 ## 🆕 Getting Started
 
+*To build this app from the ground up with care,*  
+*You'll need the right tools to prepare your lair:*
+
 - ### **Prerequisites**
 
-  - [React Native](https://reactnative.dev/)
-  - [Expo](https://expo.dev/)
-  - [Firebase](https://firebase.google.com/)
+  - [React Native](https://reactnative.dev/) - the bridge so strong
+  - [Expo](https://expo.dev/) - to help you along
+  - [Firebase](https://firebase.google.com/) - the cloud so divine
 
 <!-- GETTING STARTED -->
 
 - ### **Installation**
 
-  In order to deploy the project you'll need to follow the [wiki page](https://github.com/SimCoderYoutube/InstagramClone/wiki/Setup-your-project) dedicated to this effect.
+  *To deploy this project without a care,*  
+  *The wiki page holds the wisdom rare:*  
+  [Follow the setup guide](https://github.com/SimCoderYoutube/InstagramClone/wiki/Setup-your-project) *with precision true,*  
+  *And soon your app will be ready for you.*
 
 ## 🚧 Roadmap
 
-See the [open issues](https://github.com/SimCoderYoutube/InstagramClone/issues) for a list of proposed features (and known issues).
+*What features shall come upon the stage?*  
+*What improvements mark the next great age?*  
+*See the [open issues](https://github.com/SimCoderYoutube/InstagramClone/issues) where dreams take flight,*  
+*For proposed features and fixes bright.*
 
 <!-- CONTRIBUTING -->
 
 ## ➕ Contributing
 
-Contributions are what make the open source community such an amazing place to be learn, inspire, and create. Any contributions you make are **greatly appreciated**. Please check the [Wiki](https://github.com/SimCoderYoutube/InstagramClone/wiki/How-to-Contribute)
+*Come join the community, noble and free,*  
+*Where open source thrives in harmony.*  
+*Your contributions make us stronger still,*  
+*Each pull request, each feature to fulfill.*  
+*Please check the [Wiki](https://github.com/SimCoderYoutube/InstagramClone/wiki/How-to-Contribute) for how to begin,*  
+*And let your amazing work shine within.*
 
 ## 🌟 Show your support
 
-Give a ⭐️ if this project helped you!
+*If this project helped you on your way,*  
+*Give a ⭐️ and brighten the day!*
 
-And don't forget to subscribe to the [youtube chanel](https://www.youtube.com/c/SimpleCoder?sub_confirmation=1)
+*And don't forget to subscribe with glee,*  
+*To the [YouTube channel](https://www.youtube.com/c/SimpleCoder?sub_confirmation=1) for all to see.*
 
 ## 📝 License
 
-Copyright © 2021 [SimCoder](https://github.com/simcoderYoutube).
-
-This project is [Apache License 2.0](https://github.com/SimCoderYoutube/InstagramClone/blob/master/LICENSE) licensed. Some of the dependencies are licensed differently.
+*Copyright © 2021 [SimCoder](https://github.com/simcoderYoutube), true,*  
+*This project is [Apache License 2.0](https://github.com/SimCoderYoutube/InstagramClone/blob/master/LICENSE) through and through.*  
+*Some dependencies may differ in their way,*  
+*But open source spirit wins the day.*
 
 <!-- CONTACT -->
 
 ## 👤 Contact
 
-**SimCoder**
+**SimCoder - Creator of Dreams in Code**
+
+*To reach out to this developer so grand,*  
+*These channels stand ready, within your hand:*
 
 - Website: www.simcoder.com
 - Twitter: [@simcoder_here](https://twitter.com/simcoder_here)
