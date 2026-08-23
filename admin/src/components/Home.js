@@ -21,6 +21,7 @@ import { BrowserRouter as Router, Link, Route } from 'react-router-dom'
 import Users from './Users';
 import User from './User';
 import Post from './Post';
+import Posts from './Posts';
 import { useHistory } from "react-router-dom";
 
 const drawerWidth = 240;
@@ -148,7 +149,7 @@ export default function Home() {
                     </div>
                     <Divider />
                     <List>
-                        {['Users'].map((text, index) => (
+                        {['Users', 'Posts'].map((text, index) => (
                             <ListItem button key={text}  >
                                 <Link style={{display: 'table'}} to={`/${text}`} >
                                     <ListItemIcon >{index % 2 === 0 ? <InboxIcon /> : <MailIcon />}</ListItemIcon>
@@ -162,6 +163,7 @@ export default function Home() {
                     <div style={{ width: '100%', marginTop: '100px' }}>
                         <Route path="/" exact component={Users} />
                         <Route path="/Users" exact component={Users} />
+                        <Route path="/Posts" exact component={Posts} />
                         <Route path="/user/:id" exact component={User} />
                         <Route path="/post/:id/:uid" exact component={Post} />
                     </div>

@@ -97,6 +97,19 @@ const utils = StyleSheet.create({
     fixedRatio: {
         flex: 1,
         aspectRatio: 1
+    },
+    promotedBadge: {
+        backgroundColor: '#FFD700',
+        paddingHorizontal: 10,
+        paddingVertical: 4,
+        borderRadius: 12,
+        alignSelf: 'flex-start',
+        marginRight: 'auto'
+    },
+    promotedBadgeText: {
+        fontWeight: 'bold',
+        fontSize: 12,
+        color: '#333'
     }
 })
 const navbar = StyleSheet.create({

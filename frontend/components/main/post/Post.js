@@ -209,6 +209,11 @@ function Post(props) {
         <View style={[container.container, utils.backgroundWhite]}>
 
             <View>
+                {item.promoted && <View style={[utils.padding10, { backgroundColor: '#f5f5f5' }]}>
+                    <View style={[utils.promotedBadge]}>
+                        <Text style={[utils.promotedBadgeText]}>🌟 Promoted</Text>
+                    </View>
+                </View>}
                 <View style={[container.horizontal, { alignItems: 'center', padding: 10 }]}>
                     <TouchableOpacity
                         style={[container.horizontal, { alignItems: 'center' }]}

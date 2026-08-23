@@ -23,6 +23,9 @@ function Feed(props) {
     useEffect(() => {
         if (props.usersFollowingLoaded == props.following.length && props.following.length !== 0) {
             props.feed.sort(function (x, y) {
+                // Promoted posts first, then by creation date
+                if (x.promoted && !y.promoted) return -1;
+                if (!x.promoted && y.promoted) return 1;
                 return y.creation.toDate() - x.creation.toDate();
             })
 
