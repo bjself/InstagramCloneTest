@@ -1,7 +1,8 @@
 import * as Notifications from 'expo-notifications';
 import firebase from 'firebase';
 import { Constants } from 'react-native-unimodules';
-import { CLEAR_DATA, USERS_DATA_STATE_CHANGE, USERS_LIKES_STATE_CHANGE, USERS_POSTS_STATE_CHANGE, USER_CHATS_STATE_CHANGE, USER_FOLLOWING_STATE_CHANGE, USER_POSTS_STATE_CHANGE, USER_STATE_CHANGE } from '../constants/index';
+import { CLEAR_DATA, USERS_DATA_STATE_CHANGE, USERS_LIKES_STATE_CHANGE, USERS_POSTS_STATE_CHANGE, USER_CHATS_STATE_CHANGE, USER_FOLLOWING_STATE_CHANGE, USER_POSTS_STATE_CHANGE, USER_STATE_CHANGE, WEATHER_ERROR, WEATHER_LOADING, WEATHER_STATE_CHANGE } from '../constants/index';
+import { fetchWeather } from '../../services/weatherService';
 require('firebase/firestore')
 
 
@@ -294,6 +295,33 @@ export function deletePost(item) {
                 })
         })
     })
+}
+
+/**
+ * Fetches the user's current weather using GPS coordinates.
+ * Caches the result for 10 minutes to avoid unnecessary API calls.
+ * @param {number} latitude
+ * @param {number} longitude
+ */
+export function loadWeather(latitude, longitude) {
+    return async (dispatch, getState) => {
+        const CACHE_DURATION_MS = 10 * 60 * 1000; // 10 minutes
+        const { lastFetched } = getState().weatherState;
+        const now = Date.now();
+
+        // Skip the fetch if we have fresh data
+        if (lastFetched && now - lastFetched < CACHE_DURATION_MS) {
+            return;
+        }
+
+        dispatch({ type: WEATHER_LOADING });
+        try {
+            const data = await fetchWeather(latitude, longitude);
+            dispatch({ type: WEATHER_STATE_CHANGE, data, lastFetched: now });
+        } catch (err) {
+            dispatch({ type: WEATHER_ERROR, error: err.message || 'Failed to load weather' });
+        }
+    };
 }
 
 

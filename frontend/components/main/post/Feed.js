@@ -6,9 +6,11 @@ import { TouchableOpacity } from 'react-native-gesture-handler'
 import { Divider, Snackbar } from 'react-native-paper'
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
-import { deletePost, fetchFeedPosts, reload, sendNotification } from '../../../redux/actions/index'
+import * as Location from 'expo-location'
+import { deletePost, fetchFeedPosts, loadWeather, reload, sendNotification } from '../../../redux/actions/index'
 import { container, utils } from '../../styles'
 import Post from './Post'
+import WeatherWidget from '../weather/WeatherWidget'
 require('firebase/firestore')
 
 function Feed(props) {
@@ -19,6 +21,23 @@ function Feed(props) {
     const [sheetRef, setSheetRef] = useState(useRef(null))
     const [modalShow, setModalShow] = useState({ visible: false, item: null })
     const [isValid, setIsValid] = useState(true);
+
+    // Request location permission and load weather once on mount
+    useEffect(() => {
+        (async () => {
+            try {
+                const { status } = await Location.requestForegroundPermissionsAsync();
+                if (status === 'granted') {
+                    const loc = await Location.getCurrentPositionAsync({
+                        accuracy: Location.Accuracy.Balanced,
+                    });
+                    props.loadWeather(loc.coords.latitude, loc.coords.longitude);
+                }
+            } catch (_err) {
+                // Location unavailable — widget will show graceful fallback
+            }
+        })();
+    }, []);
 
     useEffect(() => {
         if (props.usersFollowingLoaded == props.following.length && props.following.length !== 0) {
@@ -63,6 +82,7 @@ function Feed(props) {
         <View style={[container.container, utils.backgroundWhite]}>
 
             <FlatList
+                ListHeaderComponent={<WeatherWidget />}
                 refreshControl={
                     <RefreshControl
                         refreshing={refreshing}
@@ -161,6 +181,6 @@ const mapStateToProps = (store) => ({
 
 })
 
-const mapDispatchProps = (dispatch) => bindActionCreators({ reload, sendNotification, fetchFeedPosts, deletePost }, dispatch);
+const mapDispatchProps = (dispatch) => bindActionCreators({ reload, sendNotification, fetchFeedPosts, deletePost, loadWeather }, dispatch);
 
 export default connect(mapStateToProps, mapDispatchProps)(Feed);

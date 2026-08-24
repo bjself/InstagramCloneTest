@@ -24,7 +24,8 @@
         "googleSignIn": {
           "apiKey": "****"
         }
-      }
+      },
+      "permissions": ["ACCESS_FINE_LOCATION", "ACCESS_COARSE_LOCATION"]
     },
     "ios": {
       "buildNumber": "1.0.0",
@@ -36,7 +37,10 @@
         },
         "googleMapsApiKey": "****"
       },
-      "googleServicesFile": "./GoogleService-Info.plist"
+      "googleServicesFile": "./GoogleService-Info.plist",
+      "infoPlist": {
+        "NSLocationWhenInUseUsageDescription": "Used to show local weather on your feed."
+      }
     },
     "web": {
       "favicon": "./assets/logo.png"
