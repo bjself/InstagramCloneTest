@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import clsx from 'clsx';
 import { makeStyles, useTheme } from '@material-ui/core/styles';
 import Drawer from '@material-ui/core/Drawer';
@@ -92,6 +92,14 @@ export default function Home() {
     const theme = useTheme();
     const [open, setOpen] = React.useState(false);
     const history = useHistory();
+    const [currentTime, setCurrentTime] = useState(new Date().toLocaleTimeString());
+
+    useEffect(() => {
+        const timer = setInterval(() => {
+            setCurrentTime(new Date().toLocaleTimeString());
+        }, 1000);
+        return () => clearInterval(timer);
+    }, []);
 
     const handleDrawerOpen = () => {
         setOpen(true);
@@ -126,6 +134,9 @@ export default function Home() {
                         <Typography variant="h6" noWrap>
                             FreeRide Admin
           </Typography>
+                        <Typography variant="body2" style={{ marginLeft: 'auto', marginRight: '20px' }}>
+                            {currentTime}
+                        </Typography>
                     </Toolbar>
                 </AppBar>
                 <Drawer
