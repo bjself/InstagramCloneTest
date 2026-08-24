@@ -21,6 +21,7 @@ import ProfileScreen from './components/main/profile/Profile';
 import BlockedScreen from './components/main/random/Blocked';
 import { container } from './components/styles';
 import rootReducer from './redux/reducers';
+import HeaderWithTime from './components/HeaderWithTime';
 
 const store = createStore(rootReducer, applyMiddleware(thunk))
 
@@ -100,45 +101,47 @@ export class App extends Component {
             <Stack.Screen key={Date.now()} name="Main" component={MainScreen} navigation={this.props.navigation} options={({ route }) => {
               const routeName = getFocusedRouteNameFromRoute(route) ?? 'Feed';
 
-              switch (routeName) {
-                case 'Camera': {
-                  return {
-                    headerTitle: 'Camera',
-                  };
-                }
-                case 'chat': {
-                  return {
-                    headerTitle: 'Chat',
-                  };
-                }
-                case 'Profile': {
-                  return {
-                    headerTitle: 'Profile',
-                  };
-                }
-                case 'Search': {
-                  return {
-                    headerTitle: 'Search',
-                  };
-                }
-                case 'Feed':
-                default: {
-                  return {
-                    headerTitle: 'Instagram',
-                  };
-                }
-              }
+              const titleMap = {
+                Camera: 'Camera',
+                chat: 'Chat',
+                Profile: 'Profile',
+                Search: 'Search',
+                Feed: 'Instagram',
+              };
+              const title = titleMap[routeName] ?? 'Instagram';
+
+              return {
+                headerTitle: () => <HeaderWithTime title={title} />,
+              };
             }}
             />
-            <Stack.Screen key={Date.now()} name="Save" component={SaveScreen} navigation={this.props.navigation} />
-            <Stack.Screen key={Date.now()} name="video" component={SaveScreen} navigation={this.props.navigation} />
-            <Stack.Screen key={Date.now()} name="Post" component={PostScreen} navigation={this.props.navigation} />
-            <Stack.Screen key={Date.now()} name="Chat" component={ChatScreen} navigation={this.props.navigation} />
-            <Stack.Screen key={Date.now()} name="ChatList" component={ChatListScreen} navigation={this.props.navigation} />
-            <Stack.Screen key={Date.now()} name="Edit" component={EditScreen} navigation={this.props.navigation} />
-            <Stack.Screen key={Date.now()} name="Profile" component={ProfileScreen} navigation={this.props.navigation} />
-            <Stack.Screen key={Date.now()} name="Comment" component={CommentScreen} navigation={this.props.navigation} />
-            <Stack.Screen key={Date.now()} name="ProfileOther" component={ProfileScreen} navigation={this.props.navigation} />
+            <Stack.Screen key={Date.now()} name="Save" component={SaveScreen} navigation={this.props.navigation}
+              options={{ headerTitle: () => <HeaderWithTime title="Save" /> }}
+            />
+            <Stack.Screen key={Date.now()} name="video" component={SaveScreen} navigation={this.props.navigation}
+              options={{ headerTitle: () => <HeaderWithTime title="Video" /> }}
+            />
+            <Stack.Screen key={Date.now()} name="Post" component={PostScreen} navigation={this.props.navigation}
+              options={{ headerTitle: () => <HeaderWithTime title="Post" /> }}
+            />
+            <Stack.Screen key={Date.now()} name="Chat" component={ChatScreen} navigation={this.props.navigation}
+              options={{ headerTitle: () => <HeaderWithTime title="Chat" /> }}
+            />
+            <Stack.Screen key={Date.now()} name="ChatList" component={ChatListScreen} navigation={this.props.navigation}
+              options={{ headerTitle: () => <HeaderWithTime title="Chat" /> }}
+            />
+            <Stack.Screen key={Date.now()} name="Edit" component={EditScreen} navigation={this.props.navigation}
+              options={{ headerTitle: () => <HeaderWithTime title="Edit Profile" /> }}
+            />
+            <Stack.Screen key={Date.now()} name="Profile" component={ProfileScreen} navigation={this.props.navigation}
+              options={{ headerTitle: () => <HeaderWithTime title="Profile" /> }}
+            />
+            <Stack.Screen key={Date.now()} name="Comment" component={CommentScreen} navigation={this.props.navigation}
+              options={{ headerTitle: () => <HeaderWithTime title="Comments" /> }}
+            />
+            <Stack.Screen key={Date.now()} name="ProfileOther" component={ProfileScreen} navigation={this.props.navigation}
+              options={{ headerTitle: () => <HeaderWithTime title="Profile" /> }}
+            />
             <Stack.Screen key={Date.now()} name="Blocked" component={BlockedScreen} navigation={this.props.navigation} options={{ headerShown: false }} />
           </Stack.Navigator>
         </NavigationContainer>
