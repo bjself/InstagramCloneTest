@@ -3,9 +3,9 @@ import { createStackNavigator } from '@react-navigation/stack';
 import 'expo-asset';
 import * as firebase from 'firebase';
 import _ from 'lodash';
-import React, { Component } from 'react';
-import { Image, LogBox } from 'react-native';
-import { Provider } from 'react-redux';
+import React, { Component, useEffect } from 'react';
+import { Image, LogBox, useColorScheme } from 'react-native';
+import { Provider, useDispatch } from 'react-redux';
 import { applyMiddleware, createStore } from 'redux';
 import thunk from 'redux-thunk';
 import LoginScreen from './components/auth/Login';
@@ -20,7 +20,9 @@ import EditScreen from './components/main/profile/Edit';
 import ProfileScreen from './components/main/profile/Profile';
 import BlockedScreen from './components/main/random/Blocked';
 import { container } from './components/styles';
+import { ThemeProvider } from './components/ThemeContext';
 import rootReducer from './redux/reducers';
+import { setTheme } from './redux/actions';
 
 const store = createStore(rootReducer, applyMiddleware(thunk))
 
@@ -50,6 +52,25 @@ if (firebase.apps.length === 0) {
 }
 
 const Stack = createStackNavigator();
+
+// Wrapper component to initialize theme from device color scheme
+const AppContent = () => {
+  const dispatch = useDispatch();
+  const colorScheme = useColorScheme();
+
+  useEffect(() => {
+    // Initialize theme from device color scheme on app load
+    if (colorScheme) {
+      dispatch(setTheme(colorScheme === 'dark'))
+    }
+  }, [dispatch, colorScheme])
+
+  return <AppNavigator />
+}
+
+const AppNavigator = () => {
+  return <App />
+}
 
 export class App extends Component {
   constructor(props) {
@@ -94,57 +115,65 @@ export class App extends Component {
     }
 
     return (
-      <Provider store={store}>
-        <NavigationContainer >
-          <Stack.Navigator initialRouteName="Main">
-            <Stack.Screen key={Date.now()} name="Main" component={MainScreen} navigation={this.props.navigation} options={({ route }) => {
-              const routeName = getFocusedRouteNameFromRoute(route) ?? 'Feed';
+      <NavigationContainer >
+        <Stack.Navigator initialRouteName="Main">
+          <Stack.Screen key={Date.now()} name="Main" component={MainScreen} navigation={this.props.navigation} options={({ route }) => {
+            const routeName = getFocusedRouteNameFromRoute(route) ?? 'Feed';
 
-              switch (routeName) {
-                case 'Camera': {
-                  return {
-                    headerTitle: 'Camera',
-                  };
-                }
-                case 'chat': {
-                  return {
-                    headerTitle: 'Chat',
-                  };
-                }
-                case 'Profile': {
-                  return {
-                    headerTitle: 'Profile',
-                  };
-                }
-                case 'Search': {
-                  return {
-                    headerTitle: 'Search',
-                  };
-                }
-                case 'Feed':
-                default: {
-                  return {
-                    headerTitle: 'Instagram',
-                  };
-                }
+            switch (routeName) {
+              case 'Camera': {
+                return {
+                  headerTitle: 'Camera',
+                };
               }
-            }}
-            />
-            <Stack.Screen key={Date.now()} name="Save" component={SaveScreen} navigation={this.props.navigation} />
-            <Stack.Screen key={Date.now()} name="video" component={SaveScreen} navigation={this.props.navigation} />
-            <Stack.Screen key={Date.now()} name="Post" component={PostScreen} navigation={this.props.navigation} />
-            <Stack.Screen key={Date.now()} name="Chat" component={ChatScreen} navigation={this.props.navigation} />
-            <Stack.Screen key={Date.now()} name="ChatList" component={ChatListScreen} navigation={this.props.navigation} />
-            <Stack.Screen key={Date.now()} name="Edit" component={EditScreen} navigation={this.props.navigation} />
-            <Stack.Screen key={Date.now()} name="Profile" component={ProfileScreen} navigation={this.props.navigation} />
-            <Stack.Screen key={Date.now()} name="Comment" component={CommentScreen} navigation={this.props.navigation} />
-            <Stack.Screen key={Date.now()} name="ProfileOther" component={ProfileScreen} navigation={this.props.navigation} />
-            <Stack.Screen key={Date.now()} name="Blocked" component={BlockedScreen} navigation={this.props.navigation} options={{ headerShown: false }} />
-          </Stack.Navigator>
-        </NavigationContainer>
-      </Provider>
+              case 'chat': {
+                return {
+                  headerTitle: 'Chat',
+                };
+              }
+              case 'Profile': {
+                return {
+                  headerTitle: 'Profile',
+                };
+              }
+              case 'Search': {
+                return {
+                  headerTitle: 'Search',
+                };
+              }
+              case 'Feed':
+              default: {
+                return {
+                  headerTitle: 'Instagram',
+                };
+              }
+            }
+          }}
+          />
+          <Stack.Screen key={Date.now()} name="Save" component={SaveScreen} navigation={this.props.navigation} />
+          <Stack.Screen key={Date.now()} name="video" component={SaveScreen} navigation={this.props.navigation} />
+          <Stack.Screen key={Date.now()} name="Post" component={PostScreen} navigation={this.props.navigation} />
+          <Stack.Screen key={Date.now()} name="Chat" component={ChatScreen} navigation={this.props.navigation} />
+          <Stack.Screen key={Date.now()} name="ChatList" component={ChatListScreen} navigation={this.props.navigation} />
+          <Stack.Screen key={Date.now()} name="Edit" component={EditScreen} navigation={this.props.navigation} />
+          <Stack.Screen key={Date.now()} name="Profile" component={ProfileScreen} navigation={this.props.navigation} />
+          <Stack.Screen key={Date.now()} name="Comment" component={CommentScreen} navigation={this.props.navigation} />
+          <Stack.Screen key={Date.now()} name="ProfileOther" component={ProfileScreen} navigation={this.props.navigation} />
+          <Stack.Screen key={Date.now()} name="Blocked" component={BlockedScreen} navigation={this.props.navigation} options={{ headerShown: false }} />
+        </Stack.Navigator>
+      </NavigationContainer>
     )
   }
 }
 
-export default App
+const AppWithProviders = () => {
+  return (
+    <Provider store={store}>
+      <ThemeProvider>
+        <AppContent />
+      </ThemeProvider>
+    </Provider>
+  )
+}
+
+export default AppWithProviders
