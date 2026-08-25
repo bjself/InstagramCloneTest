@@ -1,5 +1,18 @@
 
 import { StyleSheet } from 'react-native'
+
+const colors = {
+    white: 'white',
+    whitesmoke: 'whitesmoke',
+    grey: 'grey',
+    lightgrey: 'lightgrey',
+    black: 'black',
+    dodgerblue: 'dodgerblue',
+    deepskyblue: 'deepskyblue',
+    lightgreen: 'lightgreen',
+    gray: 'gray',
+}
+
 const utils = StyleSheet.create({
     centerHorizontal: {
         alignItems: 'center',
@@ -31,8 +44,8 @@ const utils = StyleSheet.create({
         borderRadius: 35 / 2,
     },
     searchBar: {
-        backgroundColor: 'whitesmoke',
-        color: 'grey',
+        backgroundColor: colors.whitesmoke,
+        color: colors.grey,
         paddingLeft: 10,
         borderRadius: 8,
         height: 40,
@@ -73,23 +86,23 @@ const utils = StyleSheet.create({
         marginBottom: 5,
     },
     backgroundWhite: {
-        backgroundColor: 'white',
+        backgroundColor: colors.white,
     },
     borderTopGray: {
         borderTopWidth: 1,
-        borderColor: 'lightgrey'
+        borderColor: colors.lightgrey
     },
     borderWhite: {
         borderLeftWidth: 2,
         borderRightWidth: 2,
         borderTopWidth: 2,
-        borderColor: 'white'
+        borderColor: colors.white
     },
     buttonOutlined: {
         padding: 8,
-        color: 'white',
+        color: colors.white,
         borderWidth: 1,
-        borderColor: 'lightgrey',
+        borderColor: colors.lightgrey,
         borderRadius: 8,
         textAlign: 'center',
     },
@@ -99,6 +112,7 @@ const utils = StyleSheet.create({
         aspectRatio: 1
     }
 })
+
 const navbar = StyleSheet.create({
 
     image: {
@@ -107,10 +121,10 @@ const navbar = StyleSheet.create({
     custom: {
         marginTop: 30,
         height: 60,
-        backgroundColor: 'white',
+        backgroundColor: colors.white,
         padding: 15,
         borderBottomWidth: 1,
-        borderColor: 'lightgrey'
+        borderColor: colors.lightgrey
     },
 
     title: {
@@ -118,6 +132,7 @@ const navbar = StyleSheet.create({
         fontSize: 20//'larger',
     }
 })
+
 const container = StyleSheet.create({
     container: {
         flex: 1,
@@ -177,7 +192,7 @@ const container = StyleSheet.create({
     gallery: {
 
         borderWidth: 1,
-        borderColor: 'gray',
+        borderColor: colors.gray,
     },
     splash: {
         padding: 200,
@@ -187,7 +202,7 @@ const container = StyleSheet.create({
     chatRight: {
         margin: 10,
         marginBottom: 10,
-        backgroundColor: 'dodgerblue',
+        backgroundColor: colors.dodgerblue,
         padding: 10,
         borderRadius: 8,
         alignSelf: 'flex-end'
@@ -196,7 +211,7 @@ const container = StyleSheet.create({
     chatLeft: {
         margin: 10,
         marginBottom: 10,
-        backgroundColor: 'grey',
+        backgroundColor: colors.grey,
         padding: 10,
         borderRadius: 8,
         alignItems: 'flex-end',
@@ -208,15 +223,15 @@ const container = StyleSheet.create({
 const form = StyleSheet.create({
     textInput: {
         marginBottom: 10,
-        borderColor: 'gray',
-        backgroundColor: 'whitesmoke',
+        borderColor: colors.gray,
+        backgroundColor: colors.whitesmoke,
         padding: 10,
         borderWidth: 1,
         borderRadius: 8
     },
     bottomButton: {
         alignContent: 'center',
-        borderTopColor: 'gray',
+        borderTopColor: colors.gray,
         borderTopWidth: 1,
         padding: 10,
         textAlign: 'center',
@@ -243,17 +258,17 @@ const text = StyleSheet.create({
     },
     changePhoto: {
         marginTop: 5,
-        color: 'deepskyblue',
+        color: colors.deepskyblue,
     },
     deepskyblue: {
-        color: 'deepskyblue',
+        color: colors.deepskyblue,
     },
     username: {
         fontWeight: '600',
-        color: 'black',
+        color: colors.black,
     },
     name: {
-        color: 'grey',
+        color: colors.grey,
     },
     bold: {
         fontWeight: '700',
@@ -269,20 +284,20 @@ const text = StyleSheet.create({
         marginBottom: 10
     },
     grey: {
-        color: 'grey'
+        color: colors.grey
     },
     green: {
-        color: 'lightgreen'
+        color: colors.lightgreen
     },
     white: {
-        color: 'white'
+        color: colors.white
     },
     whitesmoke: {
-        color: 'whitesmoke'
+        color: colors.whitesmoke
     }
 
 
 
 })
 
-export { container, form, text, utils, navbar }    
+export { container, form, text, utils, navbar, colors }
