@@ -2,7 +2,8 @@ import firebase from 'firebase';
 import React, { useState } from 'react';
 import { Button, Text, TextInput, View } from 'react-native';
 import { Snackbar } from 'react-native-paper';
-import { container, form } from '../styles';
+import { useTheme } from '../ThemeContext';
+import { ThemeToggle } from '../ThemeToggle';
 
 require('firebase/firestore');
 
@@ -12,6 +13,7 @@ export default function Register(props) {
     const [name, setName] = useState('');
     const [username, setUsername] = useState('');
     const [isValid, setIsValid] = useState(true);
+    const { container, form, colors } = useTheme();
 
     const onRegister = () => {
         if (name.lenght == 0 || username.lenght == 0 || email.length == 0 || password.length == 0) {
@@ -61,27 +63,28 @@ export default function Register(props) {
     }
 
     return (
-        <View style={container.center}>
+        <View style={[container.center, { backgroundColor: colors.white }]}>
+            <ThemeToggle />
             <View style={container.formCenter}>
                 <TextInput
-                    style={form.textInput}
+                    style={[form.textInput, { color: colors.black, placeholderTextColor: colors.grey }]}
                     placeholder="Username"
                     value={username}
                     keyboardType="twitter"
                     onChangeText={(username) => setUsername(username.normalize("NFD").replace(/[\u0300-\u036f]/g, "").replace(/\s+/g, '').replace(/[^a-z0-9]/gi, ''))}
                 />
                 <TextInput
-                    style={form.textInput}
+                    style={[form.textInput, { color: colors.black, placeholderTextColor: colors.grey }]}
                     placeholder="name"
                     onChangeText={(name) => setName(name)}
                 />
                 <TextInput
-                    style={form.textInput}
+                    style={[form.textInput, { color: colors.black, placeholderTextColor: colors.grey }]}
                     placeholder="email"
                     onChangeText={(email) => setEmail(email)}
                 />
                 <TextInput
-                    style={form.textInput}
+                    style={[form.textInput, { color: colors.black, placeholderTextColor: colors.grey }]}
                     placeholder="password"
                     secureTextEntry={true}
                     onChangeText={(password) => setPassword(password)}
@@ -94,9 +97,10 @@ export default function Register(props) {
                 />
             </View>
 
-            <View style={form.bottomButton} >
+            <View style={[form.bottomButton, { borderTopColor: colors.gray, backgroundColor: colors.white }]} >
                 <Text
-                    onPress={() => props.navigation.navigate("Login")} >
+                    onPress={() => props.navigation.navigate("Login")}
+                    style={{ color: colors.black }} >
                     Already have an account? SignIn.
                 </Text>
             </View>

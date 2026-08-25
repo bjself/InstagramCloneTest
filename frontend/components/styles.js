@@ -2,18 +2,34 @@
 import { StyleSheet } from 'react-native'
 
 const colors = {
-    white: 'white',
-    whitesmoke: 'whitesmoke',
-    grey: 'grey',
-    lightgrey: 'lightgrey',
-    black: 'black',
-    dodgerblue: 'dodgerblue',
-    deepskyblue: 'deepskyblue',
-    lightgreen: 'lightgreen',
-    gray: 'gray',
+    light: {
+        white: 'white',
+        whitesmoke: 'whitesmoke',
+        grey: 'grey',
+        lightgrey: 'lightgrey',
+        black: 'black',
+        dodgerblue: 'dodgerblue',
+        deepskyblue: 'deepskyblue',
+        lightgreen: 'lightgreen',
+        gray: 'gray',
+    },
+    dark: {
+        white: '#1a1a1a',
+        whitesmoke: '#2a2a2a',
+        grey: '#b0b0b0',
+        lightgrey: '#404040',
+        black: '#e0e0e0',
+        dodgerblue: '#4db8ff',
+        deepskyblue: '#66c2ff',
+        lightgreen: '#66ff66',
+        gray: '#505050',
+    }
 }
 
-const utils = StyleSheet.create({
+const getColors = (isDarkMode) => isDarkMode ? colors.dark : colors.light
+
+
+const getUtils = (c) => StyleSheet.create({
     centerHorizontal: {
         alignItems: 'center',
     },
@@ -44,8 +60,8 @@ const utils = StyleSheet.create({
         borderRadius: 35 / 2,
     },
     searchBar: {
-        backgroundColor: colors.whitesmoke,
-        color: colors.grey,
+        backgroundColor: c.whitesmoke,
+        color: c.grey,
         paddingLeft: 10,
         borderRadius: 8,
         height: 40,
@@ -86,23 +102,23 @@ const utils = StyleSheet.create({
         marginBottom: 5,
     },
     backgroundWhite: {
-        backgroundColor: colors.white,
+        backgroundColor: c.white,
     },
     borderTopGray: {
         borderTopWidth: 1,
-        borderColor: colors.lightgrey
+        borderColor: c.lightgrey
     },
     borderWhite: {
         borderLeftWidth: 2,
         borderRightWidth: 2,
         borderTopWidth: 2,
-        borderColor: colors.white
+        borderColor: c.white
     },
     buttonOutlined: {
         padding: 8,
-        color: colors.white,
+        color: c.white,
         borderWidth: 1,
-        borderColor: colors.lightgrey,
+        borderColor: c.lightgrey,
         borderRadius: 8,
         textAlign: 'center',
     },
@@ -113,7 +129,7 @@ const utils = StyleSheet.create({
     }
 })
 
-const navbar = StyleSheet.create({
+const getNavbar = (c) => StyleSheet.create({
 
     image: {
         padding: 20
@@ -121,10 +137,10 @@ const navbar = StyleSheet.create({
     custom: {
         marginTop: 30,
         height: 60,
-        backgroundColor: colors.white,
+        backgroundColor: c.white,
         padding: 15,
         borderBottomWidth: 1,
-        borderColor: colors.lightgrey
+        borderColor: c.lightgrey
     },
 
     title: {
@@ -133,7 +149,7 @@ const navbar = StyleSheet.create({
     }
 })
 
-const container = StyleSheet.create({
+const getContainer = (c) => StyleSheet.create({
     container: {
         flex: 1,
     },
@@ -192,7 +208,7 @@ const container = StyleSheet.create({
     gallery: {
 
         borderWidth: 1,
-        borderColor: colors.gray,
+        borderColor: c.gray,
     },
     splash: {
         padding: 200,
@@ -202,7 +218,7 @@ const container = StyleSheet.create({
     chatRight: {
         margin: 10,
         marginBottom: 10,
-        backgroundColor: colors.dodgerblue,
+        backgroundColor: c.dodgerblue,
         padding: 10,
         borderRadius: 8,
         alignSelf: 'flex-end'
@@ -211,7 +227,7 @@ const container = StyleSheet.create({
     chatLeft: {
         margin: 10,
         marginBottom: 10,
-        backgroundColor: colors.grey,
+        backgroundColor: c.grey,
         padding: 10,
         borderRadius: 8,
         alignItems: 'flex-end',
@@ -220,18 +236,18 @@ const container = StyleSheet.create({
     }
 })
 
-const form = StyleSheet.create({
+const getForm = (c) => StyleSheet.create({
     textInput: {
         marginBottom: 10,
-        borderColor: colors.gray,
-        backgroundColor: colors.whitesmoke,
+        borderColor: c.gray,
+        backgroundColor: c.whitesmoke,
         padding: 10,
         borderWidth: 1,
         borderRadius: 8
     },
     bottomButton: {
         alignContent: 'center',
-        borderTopColor: colors.gray,
+        borderTopColor: c.gray,
         borderTopWidth: 1,
         padding: 10,
         textAlign: 'center',
@@ -244,7 +260,7 @@ const form = StyleSheet.create({
 
 })
 
-const text = StyleSheet.create({
+const getText = (c) => StyleSheet.create({
     center: {
         textAlign: 'center',
     },
@@ -258,17 +274,17 @@ const text = StyleSheet.create({
     },
     changePhoto: {
         marginTop: 5,
-        color: colors.deepskyblue,
+        color: c.deepskyblue,
     },
     deepskyblue: {
-        color: colors.deepskyblue,
+        color: c.deepskyblue,
     },
     username: {
         fontWeight: '600',
-        color: colors.black,
+        color: c.black,
     },
     name: {
-        color: colors.grey,
+        color: c.grey,
     },
     bold: {
         fontWeight: '700',
@@ -284,20 +300,31 @@ const text = StyleSheet.create({
         marginBottom: 10
     },
     grey: {
-        color: colors.grey
+        color: c.grey
     },
     green: {
-        color: colors.lightgreen
+        color: c.lightgreen
     },
     white: {
-        color: colors.white
+        color: c.white
     },
     whitesmoke: {
-        color: colors.whitesmoke
+        color: c.whitesmoke
     }
 
 
 
 })
 
-export { container, form, text, utils, navbar, colors }
+
+export { getContainer, getForm, getText, getUtils, getNavbar, colors, getColors }
+
+// Create default light theme exports for backward compatibility
+const defaultColors = getColors(false)
+const container = getContainer(defaultColors)
+const form = getForm(defaultColors)
+const text = getText(defaultColors)
+const utils = getUtils(defaultColors)
+const navbar = getNavbar(defaultColors)
+
+export { container, form, text, utils, navbar }
