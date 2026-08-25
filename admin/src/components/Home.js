@@ -92,11 +92,11 @@ export default function Home() {
     const theme = useTheme();
     const [open, setOpen] = React.useState(false);
     const history = useHistory();
-    const [currentTime, setCurrentTime] = useState(new Date().toLocaleTimeString());
+    const [currentTime, setCurrentTime] = useState(new Date().toLocaleTimeString('en-US', { hour12: false }));
 
     useEffect(() => {
         const timer = setInterval(() => {
-            setCurrentTime(new Date().toLocaleTimeString());
+            setCurrentTime(new Date().toLocaleTimeString('en-US', { hour12: false }));
         }, 1000);
         return () => clearInterval(timer);
     }, []);
