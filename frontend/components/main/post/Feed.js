@@ -9,6 +9,7 @@ import { bindActionCreators } from 'redux'
 import { deletePost, fetchFeedPosts, reload, sendNotification } from '../../../redux/actions/index'
 import { container, utils } from '../../styles'
 import Post from './Post'
+import QuoteOfDay from './QuoteOfDay'
 require('firebase/firestore')
 
 function Feed(props) {
@@ -77,6 +78,7 @@ function Feed(props) {
                     waitForInteraction: false,
                     viewAreaCoveragePercentThreshold: 70
                 }}
+                ListHeaderComponent={<QuoteOfDay />}
                 numColumns={1}
                 horizontal={false}
                 data={posts}
