@@ -1,5 +1,5 @@
-import React from 'react'
-import { StyleSheet, Text, View } from 'react-native'
+import React, { useState } from 'react'
+import { StyleSheet, Text, View, Pressable } from 'react-native'
 
 const QUOTES = [
     { text: "The best way to get started is to quit talking and begin doing.", author: "Walt Disney" },
@@ -41,14 +41,27 @@ function getDayOfYear() {
 }
 
 export default function QuoteOfDay() {
+    const [showAuthorTooltip, setShowAuthorTooltip] = useState(false)
     const dayOfYear = getDayOfYear()
     const { text: quoteText, author } = QUOTES[dayOfYear % QUOTES.length]
 
     return (
         <View style={styles.container}>
-            <Text style={styles.quoteIcon}>"</Text>
+            <Text style={styles.quoteIcon}>\"</Text>
             <Text style={styles.quoteText}>{quoteText}</Text>
-            <Text style={styles.author}>— {author}</Text>
+            <View style={styles.authorContainer}>
+                <Pressable 
+                    onPress={() => setShowAuthorTooltip(!showAuthorTooltip)}
+                    style={styles.authorPressable}
+                >
+                    <Text style={styles.author}>— {author}</Text>
+                </Pressable>
+                {showAuthorTooltip && (
+                    <View style={styles.tooltip}>
+                        <Text style={styles.tooltipText}>Quote by {author}</Text>
+                    </View>
+                )}
+            </View>
         </View>
     )
 }
@@ -76,9 +89,29 @@ const styles = StyleSheet.create({
         lineHeight: 22,
         paddingBottom: 8,
     },
+    authorContainer: {
+        position: 'relative',
+    },
+    authorPressable: {
+        padding: 4,
+    },
     author: {
         fontSize: 13,
-        color: '#8e8e8e',
+        color: '#3897f0',
         fontWeight: '600',
+        textDecorationLine: 'underline',
+    },
+    tooltip: {
+        backgroundColor: '#262626',
+        paddingHorizontal: 8,
+        paddingVertical: 6,
+        borderRadius: 4,
+        marginTop: 4,
+        maxWidth: 150,
+    },
+    tooltipText: {
+        fontSize: 12,
+        color: '#ffffff',
+        fontWeight: '500',
     },
 })
