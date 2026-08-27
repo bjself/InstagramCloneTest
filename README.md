@@ -44,6 +44,7 @@
         <li><a href="#installation">Installation</a></li>
       </ul>
     </li>
+    <li><a href="#development-environment">Development Environment</a></li>
     <li><a href="#roadmap">Roadmap</a></li>
     <li><a href="#contributing">Contributing</a></li>
     <li><a href="#support">Support</a></li>
@@ -81,6 +82,62 @@ You can follow the youtube series in the following [link](https://www.youtube.co
 - ### **Installation**
 
   In order to deploy the project you'll need to follow the [wiki page](https://github.com/SimCoderYoutube/InstagramClone/wiki/Setup-your-project) dedicated to this effect.
+
+## 💻 Development Environment
+
+This project has three parts that each need their own setup. Here's what you need and how to run each one.
+
+### What you need installed
+
+| Tool | Purpose |
+|------|---------|
+| [Node.js](https://nodejs.org/) (v14 or later) | Required by all three parts |
+| [Expo CLI](https://docs.expo.dev/get-started/installation/) (`npm install -g expo-cli`) | Runs the mobile app |
+| [Firebase CLI](https://firebase.google.com/docs/cli) (`npm install -g firebase-tools`) | Deploys the backend Cloud Functions |
+| A [Firebase project](https://console.firebase.google.com/) | Provides the database, auth, and storage |
+
+### Running the mobile app
+
+```bash
+cd frontend
+npm install
+expo start
+```
+
+This opens the Expo developer tools in your browser. You can then run the app on a physical device using the Expo Go app, or on an iOS/Android emulator.
+
+### Running the admin panel
+
+```bash
+cd admin
+npm install
+npm start
+```
+
+This starts a local web server and opens the admin dashboard in your browser automatically.
+
+### Deploying the backend
+
+```bash
+cd backend/functions
+npm install
+firebase deploy --only functions
+```
+
+This publishes the Cloud Functions to your Firebase project.
+
+### Firebase configuration
+
+Each part of the project needs your own Firebase credentials to connect to your Firebase project. These files are **not included** in the repository for security reasons. Follow the [setup wiki page](https://github.com/SimCoderYoutube/InstagramClone/wiki/Setup-your-project) for instructions on creating and placing these files.
+
+### Key versions
+
+| Technology | Version |
+|-----------|---------|
+| React Native | 16.13.1 |
+| Expo | 42.0.3 |
+| React (admin panel) | 17.0.1 |
+| Firebase SDK | 8.x |
 
 ## 🚧 Roadmap
 
