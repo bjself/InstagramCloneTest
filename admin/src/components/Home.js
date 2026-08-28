@@ -21,6 +21,7 @@ import { BrowserRouter as Router, Link, Route } from 'react-router-dom'
 import Users from './Users';
 import User from './User';
 import Post from './Post';
+import Footer from './Footer';
 import { useHistory } from "react-router-dom";
 
 const drawerWidth = 240;
@@ -28,6 +29,8 @@ const drawerWidth = 240;
 const useStyles = makeStyles((theme) => ({
     root: {
         display: 'flex',
+        flexDirection: 'column',
+        minHeight: '100vh',
     },
     appBar: {
         zIndex: theme.zIndex.drawer + 1,
@@ -84,6 +87,8 @@ const useStyles = makeStyles((theme) => ({
     content: {
         flexGrow: 1,
         padding: theme.spacing(3),
+        display: 'flex',
+        flexDirection: 'column',
     },
 }));
 
@@ -165,6 +170,7 @@ export default function Home() {
                         <Route path="/user/:id" exact component={User} />
                         <Route path="/post/:id/:uid" exact component={Post} />
                     </div>
+                    <Footer />
                 </main>
             </div>
         </Router>
