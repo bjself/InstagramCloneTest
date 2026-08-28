@@ -9,6 +9,7 @@ import { bindActionCreators } from 'redux'
 import { deletePost, fetchFeedPosts, reload, sendNotification } from '../../../redux/actions/index'
 import { container, utils } from '../../styles'
 import Post from './Post'
+import QuoteFooter from './QuoteFooter'
 require('firebase/firestore')
 
 function Feed(props) {
@@ -87,6 +88,7 @@ function Feed(props) {
                         <Post route={{ params: { user: item.user, item, index, unmutted, inViewPort, setUnmuttedMain: setUnmutted, setModalShow, feed: true } }} navigation={props.navigation} />
                     </View>
                 )}
+                ListFooterComponent={<QuoteFooter />}
             />
 
             <BottomSheet
