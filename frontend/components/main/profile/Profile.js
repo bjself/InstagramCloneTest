@@ -148,6 +148,11 @@ function Profile(props) {
                 <View>
                     <Text style={text.bold}>{user.name}</Text>
                     <Text style={[text.profileDescription, utils.marginBottom]}>{user.description}</Text>
+                    {user.dominantHand ? (
+                        <Text style={[text.profileDescription, utils.margin5Bottom]}>
+                            ✋ {user.dominantHand === 'Prefer not to say' ? 'Dominant hand: Prefer not to say' : `${user.dominantHand}-handed`}
+                        </Text>
+                    ) : null}
 
                     {props.route.params.uid !== firebase.auth().currentUser.uid ? (
                         <View style={[container.horizontal]}>
