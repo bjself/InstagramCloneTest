@@ -3,11 +3,13 @@ import * as ImagePicker from 'expo-image-picker';
 import * as Updates from 'expo-updates';
 import firebase from 'firebase';
 import React, { useEffect, useLayoutEffect, useState } from 'react';
-import { Button, Image, Text, TextInput, TouchableOpacity, View } from 'react-native';
+import { Button, Image, StyleSheet, Text, TextInput, TouchableOpacity, View } from 'react-native';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { updateUserFeedPosts } from '../../../redux/actions/index';
 import { container, form, navbar, text, utils } from '../../styles';
+
+const DOMINANT_HAND_OPTIONS = ['Left', 'Right', 'Prefer not to say'];
 
 require('firebase/firestore')
 
@@ -15,6 +17,7 @@ require('firebase/firestore')
 function Edit(props) {
     const [name, setName] = useState(props.currentUser.name);
     const [description, setDescription] = useState("");
+    const [dominantHand, setDominantHand] = useState(props.currentUser.dominantHand || '');
     const [image, setImage] = useState(props.currentUser.image);
     const [imageChanged, setImageChanged] = useState(false);
     const [hasGalleryPermission, setHasGalleryPermission] = useState(null);
@@ -30,6 +33,9 @@ function Edit(props) {
             if (props.currentUser.description !== undefined) {
                 setDescription(props.currentUser.description)
             }
+            if (props.currentUser.dominantHand !== undefined) {
+                setDominantHand(props.currentUser.dominantHand)
+            }
 
         })();
     }, []);
@@ -38,10 +44,10 @@ function Edit(props) {
         props.navigation.setOptions({
             headerRight: () => (
 
-                <Feather style={navbar.image} name="check" size={24} color="green" onPress={() => { console.log({ name, description }); Save() }} />
+                <Feather style={navbar.image} name="check" size={24} color="green" onPress={() => { console.log({ name, description, dominantHand }); Save() }} />
             ),
         });
-    }, [props.navigation, name, description, image, imageChanged]);
+    }, [props.navigation, name, description, dominantHand, image, imageChanged]);
 
 
     const pickImage = async () => {
@@ -87,6 +93,7 @@ function Edit(props) {
                         .update({
                             name,
                             description,
+                            dominantHand,
                             image: snapshot,
                         }).then(() => {
                             props.updateUserFeedPosts();
@@ -105,6 +112,7 @@ function Edit(props) {
             saveData({
                 name,
                 description,
+                dominantHand,
             })
         }
     }
@@ -155,6 +163,30 @@ function Edit(props) {
                 placeholder="Description"
                 onChangeText={(description) => { setDescription(description); }}
             />
+
+            <Text style={editStyles.handLabel}>Dominant Hand</Text>
+            <View style={editStyles.handOptions}>
+                {DOMINANT_HAND_OPTIONS.map((option) => (
+                    <TouchableOpacity
+                        key={option}
+                        style={[
+                            editStyles.handOption,
+                            dominantHand === option && editStyles.handOptionSelected,
+                        ]}
+                        onPress={() => setDominantHand(option)}
+                    >
+                        <Text
+                            style={[
+                                editStyles.handOptionText,
+                                dominantHand === option && editStyles.handOptionTextSelected,
+                            ]}
+                        >
+                            {option}
+                        </Text>
+                    </TouchableOpacity>
+                ))}
+            </View>
+
             <Button
                 title="Logout"
                 onPress={() => onLogout()} />
@@ -162,6 +194,41 @@ function Edit(props) {
 
     )
 }
+
+const editStyles = StyleSheet.create({
+    handLabel: {
+        fontWeight: '700',
+        marginBottom: 8,
+        color: '#333',
+    },
+    handOptions: {
+        flexDirection: 'row',
+        flexWrap: 'wrap',
+        gap: 8,
+        marginBottom: 20,
+    },
+    handOption: {
+        paddingTop: 8,
+        paddingBottom: 8,
+        paddingLeft: 14,
+        paddingRight: 14,
+        borderWidth: 1,
+        borderColor: 'lightgrey',
+        borderRadius: 8,
+        backgroundColor: 'whitesmoke',
+    },
+    handOptionSelected: {
+        borderColor: '#2196F3',
+        backgroundColor: '#e8f4fd',
+    },
+    handOptionText: {
+        color: '#333',
+    },
+    handOptionTextSelected: {
+        color: '#2196F3',
+        fontWeight: '700',
+    },
+});
 
 const mapStateToProps = (store) => ({
     currentUser: store.userState.currentUser,
