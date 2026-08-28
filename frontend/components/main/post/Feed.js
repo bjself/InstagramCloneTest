@@ -22,7 +22,13 @@ function Feed(props) {
 
     useEffect(() => {
         if (props.usersFollowingLoaded == props.following.length && props.following.length !== 0) {
+            // Sort by promoted status first, then by creation date
             props.feed.sort(function (x, y) {
+                // If one is promoted and the other isn't, promoted comes first
+                if (x.promoted !== y.promoted) {
+                    return (x.promoted ? 0 : 1) - (y.promoted ? 0 : 1);
+                }
+                // Otherwise sort by creation date (newest first)
                 return y.creation.toDate() - x.creation.toDate();
             })
 
