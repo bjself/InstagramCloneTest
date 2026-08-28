@@ -12,6 +12,7 @@ import LoginScreen from './components/auth/Login';
 import RegisterScreen from './components/auth/Register';
 import MainScreen from './components/Main';
 import SaveScreen from './components/main/add/Save';
+import CreateStoryCameraScreen from './components/main/add/CreateStoryCamera';
 import ChatScreen from './components/main/chat/Chat';
 import ChatListScreen from './components/main/chat/List';
 import CommentScreen from './components/main/post/Comment';
@@ -19,6 +20,7 @@ import PostScreen from './components/main/post/Post';
 import EditScreen from './components/main/profile/Edit';
 import ProfileScreen from './components/main/profile/Profile';
 import BlockedScreen from './components/main/random/Blocked';
+import StoryViewerScreen from './components/main/stories/StoryViewer';
 import { container } from './components/styles';
 import rootReducer from './redux/reducers';
 
@@ -140,6 +142,8 @@ export class App extends Component {
             <Stack.Screen key={Date.now()} name="Comment" component={CommentScreen} navigation={this.props.navigation} />
             <Stack.Screen key={Date.now()} name="ProfileOther" component={ProfileScreen} navigation={this.props.navigation} />
             <Stack.Screen key={Date.now()} name="Blocked" component={BlockedScreen} navigation={this.props.navigation} options={{ headerShown: false }} />
+            <Stack.Screen key={Date.now()} name="StoryViewer" component={StoryViewerScreen} navigation={this.props.navigation} options={{ headerShown: false }} />
+            <Stack.Screen key={Date.now()} name="CreateStory" component={CreateStoryCameraScreen} navigation={this.props.navigation} options={{ headerTitle: 'New Story' }} />
           </Stack.Navigator>
         </NavigationContainer>
       </Provider>

@@ -7,7 +7,9 @@ import { Divider, Snackbar } from 'react-native-paper'
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
 import { deletePost, fetchFeedPosts, reload, sendNotification } from '../../../redux/actions/index'
+import { fetchStoriesForFollowing } from '../../../redux/actions/storiesActions'
 import { container, utils } from '../../styles'
+import StoriesBar from '../stories/StoriesBar'
 import Post from './Post'
 require('firebase/firestore')
 
@@ -35,6 +37,7 @@ function Feed(props) {
                 }
             }
         }
+        props.fetchStoriesForFollowing()
         props.navigation.setParams({ param: "value" })
 
     }, [props.usersFollowingLoaded, props.feed])
@@ -49,7 +52,11 @@ function Feed(props) {
 
 
     if (posts.length == 0) {
-        return (<View />)
+        return (
+            <View style={[container.container, utils.backgroundWhite]}>
+                <StoriesBar navigation={props.navigation} />
+            </View>
+        )
     }
 
     if (sheetRef.current !== null) {
@@ -63,6 +70,7 @@ function Feed(props) {
         <View style={[container.container, utils.backgroundWhite]}>
 
             <FlatList
+                ListHeaderComponent={<StoriesBar navigation={props.navigation} />}
                 refreshControl={
                     <RefreshControl
                         refreshing={refreshing}
@@ -157,10 +165,8 @@ const mapStateToProps = (store) => ({
     following: store.userState.following,
     feed: store.usersState.feed,
     usersFollowingLoaded: store.usersState.usersFollowingLoaded,
-
-
 })
 
-const mapDispatchProps = (dispatch) => bindActionCreators({ reload, sendNotification, fetchFeedPosts, deletePost }, dispatch);
+const mapDispatchProps = (dispatch) => bindActionCreators({ reload, sendNotification, fetchFeedPosts, deletePost, fetchStoriesForFollowing }, dispatch);
 
 export default connect(mapStateToProps, mapDispatchProps)(Feed);
