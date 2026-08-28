@@ -86,7 +86,8 @@ describe('Content Type Handling in Cloud Functions', () => {
 
   describe('Content Type in Notifications', () => {
     test('should send notification with type 0 for post engagement', () => {
-      const notification = {\n        type: 0,
+      const notification = {
+        type: 0,
         postId: 'post123',
         user: 'user456',
       };
@@ -176,7 +177,7 @@ describe('Content Type Handling in Cloud Functions', () => {
         downloadURL: 'https://example.com/video.mp4',
       };
 
-      const mentionPattern = /\\B@[a-z0-9_-]+/gi;
+      const mentionPattern = /\B@[a-z0-9_-]+/gi;
       const mentions = post.caption.match(mentionPattern);
       expect(mentions).toEqual(['@user1', '@user2']);
     });
