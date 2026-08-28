@@ -210,6 +210,11 @@ function Post(props) {
 
             <View>
                 <View style={[container.horizontal, { alignItems: 'center', padding: 10 }]}>
+                    {item.promoted && (
+                        <View style={{ backgroundColor: '#FFD700', paddingHorizontal: 8, paddingVertical: 4, borderRadius: 4, marginRight: 8 }}>
+                            <Text style={[text.bold, text.small, { color: '#000' }]}>Promoted</Text>
+                        </View>
+                    )}
                     <TouchableOpacity
                         style={[container.horizontal, { alignItems: 'center' }]}
                         onPress={() => props.navigation.navigate("ProfileOther", { uid: user.uid, username: undefined })}>

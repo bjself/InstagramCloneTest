@@ -78,6 +78,21 @@ export default function Post(props) {
             .delete()
     }
 
+    const togglePromoted = () => {
+        const newPromotedStatus = !post.promoted;
+        firebase.firestore()
+            .collection("posts")
+            .doc(props.match.params.uid)
+            .collection("userPosts")
+            .doc(props.match.params.id)
+            .update({
+                promoted: newPromotedStatus
+            })
+            .then(() => {
+                setPost({ ...post, promoted: newPromotedStatus });
+            })
+    }
+
 
     const columns = [
         { field: 'id', headerName: 'ID', width: 280 },
@@ -135,6 +150,9 @@ export default function Post(props) {
                 </div>
 
                 <Button variant="contained" color="primary" className="mr-2 col-md-3" href={post.downloadURL} target="_blank">Open Media</Button>
+                <Button variant="contained" color={post.promoted ? "secondary" : "default"} onClick={() => { togglePromoted() }} className="mr-2">
+                    {post.promoted ? "Unpromote" : "Promote"}
+                </Button>
                 <Button variant="contained" color="secondary" onClick={() => { deletePost() }}>
                     Delete
                 </Button>
