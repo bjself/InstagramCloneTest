@@ -2,6 +2,7 @@ import { Feather } from '@expo/vector-icons';
 import { useIsFocused } from '@react-navigation/native';
 import { Audio } from "expo-av";
 import { Camera } from "expo-camera";
+import * as DocumentPicker from 'expo-document-picker';
 import * as ImagePicker from 'expo-image-picker';
 import * as MediaLibrary from 'expo-media-library';
 import * as VideoThumbnails from 'expo-video-thumbnails';
@@ -136,6 +137,25 @@ export default function VideoScreen(props) {
         })
     }
 
+    const handleSvgPick = async () => {
+        try {
+            const result = await DocumentPicker.getDocumentAsync({
+                type: 'image/svg+xml',
+            });
+
+            if (result.type === 'success') {
+                props.navigation.navigate('Save', {
+                    source: result.uri,
+                    type: 2,
+                    imageSource: null,
+                    fileName: result.name
+                })
+            }
+        } catch (error) {
+            console.warn(error);
+        }
+    }
+
     const renderCaptureControl = () => (
         <View>
             <View style={{ justifyContent: 'space-evenly', width: '100%', alignItems: 'center', flexDirection: 'row', backgroundColor: 'white' }}>
@@ -167,6 +187,9 @@ export default function VideoScreen(props) {
                 </TouchableOpacity>
                 <TouchableOpacity onPress={() => setShowGallery(true)} >
                     <Feather style={utils.margin15} name={"image"} size={25} color="black" />
+                </TouchableOpacity>
+                <TouchableOpacity onPress={handleSvgPick} >
+                    <Feather style={utils.margin15} name={"file"} size={25} color="black" />
                 </TouchableOpacity>
             </View>
 

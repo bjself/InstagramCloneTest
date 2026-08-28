@@ -195,24 +195,27 @@ function Save(props) {
                             />
                         </View>
                         <View>
-                            {props.route.params.type ?
-
-                                <Image
-                                    style={container.image}
-                                    source={{ uri: props.route.params.source }}
-                                    style={{ aspectRatio: 1 / 1, backgroundColor: 'black' }}
-                                />
-
+                            {props.route.params.type == 2 ?
+                                <View style={{ aspectRatio: 1 / 1, backgroundColor: 'black', justifyContent: 'center', alignItems: 'center' }}>
+                                    <Feather name="file" size={60} color="white" />
+                                    <Text style={{ color: 'white', marginTop: 10, fontWeight: 'bold' }}>SVG File</Text>
+                                </View>
                                 :
+                                props.route.params.type ?
+                                    <Image
+                                        style={container.image}
+                                        source={{ uri: props.route.params.source }}
+                                        style={{ aspectRatio: 1 / 1, backgroundColor: 'black' }}
+                                    />
+                                    :
+                                    <Video
+                                        source={{ uri: props.route.params.source }}
+                                        shouldPlay={true}
+                                        isLooping={true}
+                                        resizeMode="cover"
 
-                                <Video
-                                    source={{ uri: props.route.params.source }}
-                                    shouldPlay={true}
-                                    isLooping={true}
-                                    resizeMode="cover"
-
-                                    style={{ aspectRatio: 1 / 1, backgroundColor: 'black' }}
-                                />
+                                        style={{ aspectRatio: 1 / 1, backgroundColor: 'black' }}
+                                    />
                             }
                         </View>
 
