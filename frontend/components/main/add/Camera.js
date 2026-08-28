@@ -169,7 +169,12 @@ export default function VideoScreen(props) {
                     <Feather style={utils.margin15} name={"image"} size={25} color="black" />
                 </TouchableOpacity>
             </View>
-
+            <TouchableOpacity
+                style={{ alignSelf: 'center', backgroundColor: '#3897f0', paddingHorizontal: 24, paddingVertical: 8, borderRadius: 50, marginTop: 8, marginBottom: 4 }}
+                onPress={() => props.navigation.navigate('CreateStory')}
+            >
+                <Text style={{ color: 'white', fontWeight: '700', fontSize: 14 }}>+ Story</Text>
+            </TouchableOpacity>
         </View>
 
     );
