@@ -11,3 +11,9 @@ web-build/
 
 # macOS
 .DS_Store
+
+# npm cache created during CI installs
+.npm-cache/
+
+# Generated lock files (admin uses its own package-lock.json)
+admin/package-lock.json
