@@ -24,7 +24,8 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "test": "react-scripts test",
+    "test": "node node_modules/.bin/jest --config jest.config.js --watchAll=false",
+    "test:watch": "node node_modules/.bin/jest --config jest.config.js",
     "eject": "react-scripts eject"
   },
   "eslintConfig": {
