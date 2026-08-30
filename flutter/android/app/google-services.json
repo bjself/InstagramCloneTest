@@ -1,0 +1,23 @@
+{
+  "_comment": "REPLACE THIS FILE with the real google-services.json downloaded from your Firebase project console.",
+  "_comment2": "Go to Firebase Console → Project Settings → Your apps → Android → Download google-services.json",
+  "_comment3": "The Flutter app shares the SAME Firebase project as the React Native frontend.",
+  "project_info": {
+    "project_number": "****",
+    "project_id": "****",
+    "storage_bucket": "****.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "****",
+        "android_client_info": {
+          "package_name": "com.example.instagram_clone_flutter"
+        }
+      },
+      "api_key": [{"current_key": "****"}],
+      "services": {}
+    }
+  ],
+  "configuration_version": "1"
+}
