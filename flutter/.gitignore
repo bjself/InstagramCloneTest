@@ -1,0 +1,29 @@
+# Flutter/Dart
+.dart_tool/
+.flutter-plugins
+.flutter-plugins-dependencies
+.packages
+.pub-cache/
+.pub/
+build/
+pubspec.lock
+
+# Android
+android/.gradle/
+android/captures/
+android/local.properties
+# Keep google-services.json placeholder but add a warning in its contents
+
+# iOS
+ios/Pods/
+ios/Runner/GeneratedPluginRegistrant.*
+ios/Flutter/Flutter.framework
+ios/Flutter/Flutter.podspec
+ios/.symlinks/
+ios/build/
+ios/Runner/GoogleService-Info.plist
+
+# Misc
+*.iml
+*.log
+.DS_Store
